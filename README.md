@@ -9,3 +9,4 @@
 #### 4. Add logger files code 
 #### 5. Write Custom exception code
 #### 6. Add main Utils Files code
+#### 7. Create jypeter files for EDA and Model Training
