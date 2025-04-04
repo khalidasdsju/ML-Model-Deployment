@@ -7,4 +7,4 @@
 #### 2. Update setup.py to install requirements.txt pakages
 #### 3. Stoe data in Mongodb
 #### 4. Add logger 
-#### 5. 
+#### 5. Write Custom exception
