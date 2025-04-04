@@ -6,4 +6,5 @@
 ![alt text](<folder structure.png>)
 #### 2. Update setup.py to install requirements.txt pakages
 #### 3. Stoe data in Mongodb
-#### 4. 
+#### 4. Add logger 
+#### 5. 
