@@ -1,4 +1,4 @@
-#!/Users/khalid/Desktop/ML-Model-Deployment/.venv/bin/python
+#!/Users/khalid/Desktop/ML-Model-Deployment/.venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys
