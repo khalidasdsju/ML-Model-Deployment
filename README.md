@@ -18,3 +18,5 @@
 ######          "4.Pipeline"
 ####    1.Data Ingestion
 ####     ![alt text](<Data Ingestion.png>)
+####    2. Data Drift with Evidently & Data Validation
+####      ![alt text](<Data Validation.png>)
