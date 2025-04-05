@@ -14,6 +14,7 @@ HF/components/model_evaluation.py
 HF/components/model_pusher.py
 HF/components/model_trainer.py
 HF/configuration/__init__.py
+HF/configuration/mongo_db_connection.py
 HF/constants/__init__.py
 HF/entity/__init__.py
 HF/entity/artifact_entity.py

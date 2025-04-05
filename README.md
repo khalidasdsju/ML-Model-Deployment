@@ -10,3 +10,11 @@
 #### 5. Write Custom exception code
 #### 6. Add main Utils Files code
 #### 7. Create jypeter files for EDA and Model Training
+#### 8. Start Update HF/Component:
+#####   "Work flow every components:"
+######          "1.Constant"
+######          "2.entity"
+######          "3.components"
+######          "4.Pipeline"
+####    1.Data Ingestion
+####     ![alt text](<Data Ingestion.png>)
