@@ -16,7 +16,8 @@
 ######          "2.entity"
 ######          "3.components"
 ######          "4.Pipeline"
+######          "5.Main Files" 
 ####    1.Data Ingestion
 ####     ![alt text](<Data Ingestion.png>)
-####    2. Data Drift with Evidently & Data Validation
+####    2. Data Drift with Evidently(MLOps Tool) & Data Validation
 ####      ![alt text](<Data Validation.png>)
