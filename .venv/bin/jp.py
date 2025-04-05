@@ -1,4 +1,4 @@
-#!/Users/khalid/Desktop/ML-Model-Deployment/.venv/bin/python3.10
+#!/Users/khalid/Desktop/ML-Model-Deployment/.venv/bin/python3
 
 import sys
 import json
