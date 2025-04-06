@@ -1,6 +1,6 @@
 import pandas as pd
 
-def validate_columns_exist(df: pd.DataFrame, columns: list) -> None:
-    missing_columns = [col for col in columns if col not in df.columns]
-    if missing_columns:
-        raise ValueError(f"The following columns are missing from the DataFrame: {missing_columns}")
+# Example definition of train_df
+train_df = pd.DataFrame({'Column1': [1, 2], 'Column2': [3, 4]})
+print("Train DataFrame Columns:", train_df.columns.tolist())
+print("Test DataFrame Columns:", test_df.columns.tolist())

@@ -7,7 +7,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder, PowerTransformer
 from sklearn.compose import ColumnTransformer
 
-from HF.constants import TARGET_COLUMN, SCHEMA_FILE_PATH
 from HF.entity.config_entity import DataTransformationConfig
 from HF.entity.artifact_entity import DataTransformationArtifact, DataIngestionArtifact, DataValidationArtifact
 from HF.exception import HFException
@@ -29,7 +28,7 @@ class DataTransformation:
             self.data_ingestion_artifact = data_ingestion_artifact
             self.data_transformation_config = data_transformation_config
             self.data_validation_artifact = data_validation_artifact
-            self._schema_config = read_yaml_file(file_path=SCHEMA_FILE_PATH)
+            self._schema_config = read_yaml_file(file_path="/Users/khalid/Desktop/ML-Model-Deployment/config/schema.yaml")
         except Exception as e:
             raise HFException(e, sys)
 
@@ -108,14 +107,10 @@ class DataTransformation:
                 train_df = DataTransformation.read_data(file_path=self.data_ingestion_artifact.trained_file_path)
                 test_df = DataTransformation.read_data(file_path=self.data_ingestion_artifact.test_file_path)
 
-                input_feature_train_df = train_df.drop(columns=[TARGET_COLUMN], axis=1)
-                target_feature_train_df = train_df[TARGET_COLUMN]
+                input_feature_train_df = train_df.drop(columns=["HF"], axis=1)
+                target_feature_train_df = train_df["HF"]
 
                 logging.info("Got train features and test features of Training dataset")
-
-                input_feature_train_df['company_age'] = CURRENT_YEAR-input_feature_train_df['yr_of_estab']
-
-                logging.info("Added company_age column to the Training dataset")
 
                 drop_cols = self._schema_config['drop_columns']
 
@@ -128,14 +123,10 @@ class DataTransformation:
                 )
 
 
-                input_feature_test_df = test_df.drop(columns=[TARGET_COLUMN], axis=1)
+                input_feature_test_df = test_df.drop(columns=["HF"], axis=1)
 
-                target_feature_test_df = test_df[TARGET_COLUMN]
+                target_feature_test_df = test_df["HF"]
 
-
-                input_feature_test_df['company_age'] = CURRENT_YEAR-input_feature_test_df['yr_of_estab']
-
-                logging.info("Added company_age column to the Test dataset")
 
                 input_feature_test_df = drop_columns(df=input_feature_test_df, cols = drop_cols)
 
@@ -210,3 +201,5 @@ class DataTransformation:
 
         except Exception as e:
             raise HFException(e, sys) from e
+        
+ 

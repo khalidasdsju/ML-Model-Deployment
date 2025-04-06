@@ -229,6 +229,7 @@ categorical_columns:
 
 drop_columns:
   - StudyID
+terget_column: HF
 
 # for data transformation
 num_features:
