@@ -13,15 +13,16 @@ Properties:
 Example:
     Using by object:
 
-    >>> from evidently.options import DataDriftOptions
+    >>> from evidently.options.data_drift import DataDriftOptions
     >>> from evidently.calculations.stattests import hellinger_stat_test
     >>> options = DataDriftOptions(all_features_stattest=hellinger_stat_test)
 
     Using by name:
 
-    >>> from evidently.options import DataDriftOptions
+    >>> from evidently.options.data_drift import DataDriftOptions
     >>> options = DataDriftOptions(all_features_stattest="hellinger")
 """
+
 from collections import defaultdict
 from math import sqrt
 from typing import DefaultDict
@@ -32,12 +33,13 @@ import pandas as pd
 
 from evidently.calculations.stattests.registry import StatTest
 from evidently.calculations.stattests.registry import register_stattest
+from evidently.core import ColumnType
 
 
 def _hellinger_distance(
     reference_data: pd.Series,
     current_data: pd.Series,
-    feature_type: str,
+    feature_type: ColumnType,
     threshold: float,
 ) -> Tuple[float, bool]:
     """Compute the Hellinger distance between two arrays
@@ -55,10 +57,10 @@ def _hellinger_distance(
 
     keys = list((set(reference_data.unique()) | set(current_data.unique())))
 
-    if feature_type == "cat":
+    if feature_type == ColumnType.Categorical:
         dd: DefaultDict[int, int] = defaultdict(int)
-        ref = (reference_data.value_counts() / len(reference_data)).to_dict(dd)
-        curr = (current_data.value_counts() / len(current_data)).to_dict(dd)
+        ref = (reference_data.value_counts() / len(reference_data)).to_dict(into=dd)
+        curr = (current_data.value_counts() / len(current_data)).to_dict(into=dd)
 
         hellinger_distance = 0.0
         for key in keys:
@@ -71,8 +73,8 @@ def _hellinger_distance(
 
     else:
         bins = np.histogram_bin_edges(keys, bins="sturges")
-        h1 = np.histogram(reference_data.values, bins=bins, density=True)[0]
-        h2 = np.histogram(current_data.values, bins=bins, density=True)[0]
+        h1 = np.histogram(reference_data.to_numpy(), bins=bins, density=True)[0]
+        h2 = np.histogram(current_data.to_numpy(), bins=bins, density=True)[0]
 
         bin_width = (max(bins) - min(bins)) / (len(bins) - 1)
 
@@ -91,9 +93,8 @@ def _hellinger_distance(
 hellinger_stat_test = StatTest(
     name="hellinger",
     display_name="Hellinger distance",
-    func=_hellinger_distance,
-    allowed_feature_types=["cat", "num"],
+    allowed_feature_types=[ColumnType.Categorical, ColumnType.Numerical],
     default_threshold=0.1,
 )
 
-register_stattest(hellinger_stat_test)
+register_stattest(hellinger_stat_test, _hellinger_distance)

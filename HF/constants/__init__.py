@@ -28,7 +28,6 @@ DATA_INGESTION_INGESTED_DIR: str = "ingested"
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.2
 
 TARGET_COLUMN = "HF"
-CURRENT_YEAR = date.today().year
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 

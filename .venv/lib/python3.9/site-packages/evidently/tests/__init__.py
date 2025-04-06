@@ -19,6 +19,7 @@ from .classification_performance_tests import TestTPR
 from .data_drift_tests import TestAllFeaturesValueDrift
 from .data_drift_tests import TestColumnDrift
 from .data_drift_tests import TestCustomFeaturesValueDrift
+from .data_drift_tests import TestEmbeddingsDrift
 from .data_drift_tests import TestNumberOfDriftedColumns
 from .data_drift_tests import TestShareOfDriftedColumns
 from .data_integrity_tests import TestAllColumnsShareOfMissingValues
@@ -45,6 +46,8 @@ from .data_integrity_tests import TestShareOfMissingValues
 from .data_integrity_tests import TestShareOfRowsWithMissingValues
 from .data_quality_tests import TestAllColumnsMostCommonValueShare
 from .data_quality_tests import TestCatColumnsOutOfListValues
+from .data_quality_tests import TestCategoryCount
+from .data_quality_tests import TestCategoryShare
 from .data_quality_tests import TestColumnQuantile
 from .data_quality_tests import TestColumnValueMax
 from .data_quality_tests import TestColumnValueMean
@@ -70,9 +73,120 @@ from .data_quality_tests import TestTargetPredictionCorrelation
 from .data_quality_tests import TestUniqueValuesShare
 from .data_quality_tests import TestValueList
 from .data_quality_tests import TestValueRange
+from .recsys_tests import TestARP
+from .recsys_tests import TestCoverage
+from .recsys_tests import TestDiversity
+from .recsys_tests import TestFBetaTopK
+from .recsys_tests import TestGiniIndex
+from .recsys_tests import TestHitRateK
+from .recsys_tests import TestMAPK
+from .recsys_tests import TestMARK
+from .recsys_tests import TestMRRK
+from .recsys_tests import TestNDCGK
+from .recsys_tests import TestNovelty
+from .recsys_tests import TestPersonalization
+from .recsys_tests import TestPrecisionTopK
+from .recsys_tests import TestRecallTopK
+from .recsys_tests import TestScoreEntropy
+from .recsys_tests import TestSerendipity
 from .regression_performance_tests import TestValueAbsMaxError
 from .regression_performance_tests import TestValueMAE
 from .regression_performance_tests import TestValueMAPE
 from .regression_performance_tests import TestValueMeanError
 from .regression_performance_tests import TestValueR2Score
 from .regression_performance_tests import TestValueRMSE
+
+__all__ = [
+    "TestAccuracyScore",
+    "TestF1ByClass",
+    "TestF1Score",
+    "TestFNR",
+    "TestFPR",
+    "TestLogLoss",
+    "TestPrecisionByClass",
+    "TestPrecisionScore",
+    "TestRecallByClass",
+    "TestRecallScore",
+    "TestRocAuc",
+    "TestTNR",
+    "TestTPR",
+    "TestAllFeaturesValueDrift",
+    "TestCategoryCount",
+    "TestCategoryShare",
+    "TestColumnDrift",
+    "TestCustomFeaturesValueDrift",
+    "TestEmbeddingsDrift",
+    "TestNumberOfDriftedColumns",
+    "TestShareOfDriftedColumns",
+    "TestAllColumnsShareOfMissingValues",
+    "TestColumnAllConstantValues",
+    "TestColumnAllUniqueValues",
+    "TestColumnNumberOfDifferentMissingValues",
+    "TestColumnNumberOfMissingValues",
+    "TestColumnRegExp",
+    "TestColumnShareOfMissingValues",
+    "TestColumnsType",
+    "TestNumberOfColumns",
+    "TestNumberOfColumnsWithMissingValues",
+    "TestNumberOfConstantColumns",
+    "TestNumberOfDifferentMissingValues",
+    "TestNumberOfDuplicatedColumns",
+    "TestNumberOfDuplicatedRows",
+    "TestNumberOfEmptyColumns",
+    "TestNumberOfEmptyRows",
+    "TestNumberOfMissingValues",
+    "TestNumberOfRows",
+    "TestNumberOfRowsWithMissingValues",
+    "TestShareOfColumnsWithMissingValues",
+    "TestShareOfMissingValues",
+    "TestShareOfRowsWithMissingValues",
+    "TestAllColumnsMostCommonValueShare",
+    "TestCatColumnsOutOfListValues",
+    "TestColumnQuantile",
+    "TestColumnValueMax",
+    "TestColumnValueMean",
+    "TestColumnValueMedian",
+    "TestColumnValueMin",
+    "TestColumnValueStd",
+    "TestConflictPrediction",
+    "TestConflictTarget",
+    "TestCorrelationChanges",
+    "TestHighlyCorrelatedColumns",
+    "TestMeanInNSigmas",
+    "TestMostCommonValueShare",
+    "TestNumberOfOutListValues",
+    "TestNumberOfOutRangeValues",
+    "TestNumberOfUniqueValues",
+    "TestNumColumnsMeanInNSigmas",
+    "TestNumColumnsOutOfRangeValues",
+    "TestPredictionFeaturesCorrelations",
+    "TestShareOfOutListValues",
+    "TestShareOfOutRangeValues",
+    "TestTargetFeaturesCorrelations",
+    "TestTargetPredictionCorrelation",
+    "TestUniqueValuesShare",
+    "TestValueList",
+    "TestValueRange",
+    "TestValueAbsMaxError",
+    "TestValueMAE",
+    "TestValueMAPE",
+    "TestValueMeanError",
+    "TestValueR2Score",
+    "TestValueRMSE",
+    "TestFBetaTopK",
+    "TestHitRateK",
+    "TestMAPK",
+    "TestMRRK",
+    "TestMARK",
+    "TestNDCGK",
+    "TestPrecisionTopK",
+    "TestRecallTopK",
+    "TestNovelty",
+    "TestPersonalization",
+    "TestSerendipity",
+    "TestDiversity",
+    "TestARP",
+    "TestGiniIndex",
+    "TestCoverage",
+    "TestScoreEntropy",
+]

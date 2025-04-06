@@ -13,15 +13,16 @@ Properties:
 Example:
     Using by object:
 
-    >>> from evidently.options import DataDriftOptions
+    >>> from evidently.options.data_drift import DataDriftOptions
     >>> from evidently.calculations.stattests import kl_div_stat_test
     >>> options = DataDriftOptions(all_features_stattest=kl_div_stat_test)
 
     Using by name:
 
-    >>> from evidently.options import DataDriftOptions
+    >>> from evidently.options.data_drift import DataDriftOptions
     >>> options = DataDriftOptions(all_features_stattest="kl_div")
 """
+
 from typing import Tuple
 
 import pandas as pd
@@ -30,10 +31,11 @@ from scipy import stats
 from evidently.calculations.stattests.registry import StatTest
 from evidently.calculations.stattests.registry import register_stattest
 from evidently.calculations.stattests.utils import get_binned_data
+from evidently.core import ColumnType
 
 
 def _kl_div(
-    reference_data: pd.Series, current_data: pd.Series, feature_type: str, threshold: float, n_bins: int = 30
+    reference_data: pd.Series, current_data: pd.Series, feature_type: ColumnType, threshold: float, n_bins: int = 30
 ) -> Tuple[float, bool]:
     """Compute the Kullback-Leibler divergence between two arrays
     Args:
@@ -54,9 +56,8 @@ def _kl_div(
 kl_div_stat_test = StatTest(
     name="kl_div",
     display_name="Kullback-Leibler divergence",
-    func=_kl_div,
-    allowed_feature_types=["cat", "num"],
+    allowed_feature_types=[ColumnType.Categorical, ColumnType.Numerical],
     default_threshold=0.1,
 )
 
-register_stattest(kl_div_stat_test)
+register_stattest(kl_div_stat_test, _kl_div)

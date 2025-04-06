@@ -1,4 +1,5 @@
 columns:
+  - StudyID: category
   - Age: float
   - Sex: category
   - BMI: float
@@ -31,7 +32,7 @@ columns:
   - Thrombolysis: category
   - ICT: float
   - IRT: float
-  - MR: int
+  - MR: category
   - EA: float
   - DT: float
   - MPI: float
@@ -63,7 +64,6 @@ numerical_columns:
   - LAV
   - ICT
   - IRT
-  - MR
   - EA
   - DT
   - MPI
@@ -89,16 +89,97 @@ categorical_columns:
   - ACS
   - Wall
   - Thrombolysis
+  - MR
   - Chest_pain
   - HF
-
 
 drop_columns:
   - StudyID
 
-
 # for data transformation
 num_features:
+  - BMI
+  - HR
+  - RBS
+  - Creatinine
+  - K
+  - LVIDs
+  - MPI
+  - RR
+  - TC
+  - LDLc
+  - HDLc
+  - TG
+
+or_columns:
+  - Sex
+  - NYHA
+  - HTN
+  - DM
+  - Smoker
+  - DL
+  - BA
+  - CXR
+  - RWMA
+  - MI
+  - Chest_pain
+  - HF
+
+oh_columns:
+  - ECG
+  - ACS
+  - Wall
+  - Thrombolysis
+  - MR
+
+columns:
+  - StudyID: category
+  - Age: float
+  - Sex: category
+  - BMI: float
+  - NYHA: category
+  - HR: float
+  - HTN: category
+  - DM: category
+  - Smoker: category
+  - DL: category
+  - BA: category
+  - RBS: float
+  - HbA1C: float
+  - Creatinine: float
+  - Na: float
+  - K: float
+  - Cl: float
+  - Hb: float
+  - TropI: float
+  - CXR: category
+  - ECG: category
+  - LVIDd: float
+  - FS: float
+  - LVIDs: float
+  - LVEF: float
+  - RWMA: category
+  - LAV: float
+  - MI: category
+  - ACS: category
+  - Wall: category
+  - Thrombolysis: category
+  - ICT: float
+  - IRT: float
+  - MR: category
+  - EA: float
+  - DT: float
+  - MPI: float
+  - RR: float
+  - Chest_pain: category
+  - TC: float
+  - LDLc: float
+  - HDLc: float
+  - TG: float
+  - BNP: float
+  - HF: category
+
+numerical_columns:
   - Age
   - BMI
   - HR
@@ -117,7 +198,6 @@ num_features:
   - LAV
   - ICT
   - IRT
-  - MR
   - EA
   - DT
   - MPI
@@ -127,6 +207,43 @@ num_features:
   - HDLc
   - TG
   - BNP
+
+categorical_columns:
+  - Sex
+  - NYHA
+  - HTN
+  - DM
+  - Smoker
+  - DL
+  - BA
+  - CXR
+  - ECG
+  - RWMA
+  - MI
+  - ACS
+  - Wall
+  - Thrombolysis
+  - MR
+  - Chest_pain
+  - HF
+
+drop_columns:
+  - StudyID
+
+# for data transformation
+num_features:
+  - BMI
+  - HR
+  - RBS
+  - Creatinine
+  - K
+  - LVIDs
+  - MPI
+  - RR
+  - TC
+  - LDLc
+  - HDLc
+  - TG
 
 or_columns:
   - Sex
@@ -142,7 +259,6 @@ or_columns:
   - Chest_pain
   - HF
 
-
 oh_columns:
   - ECG
   - ACS
@@ -151,28 +267,22 @@ oh_columns:
   - MR
 
 transform_columns:
-  log_transform:
     - BMI
     - HR
     - RBS
     - Creatinine
     - K
     - LVIDs
-    - MR
     - MPI
     - RR
     - TC
     - LDLc
     - HDLc
     - TG
-
-  sqrt_transform:
     - HbA1C
     - Cl
     - TropI
     - BNP
-
-  boxcox_transform:
     - Na
     - K
     - Hb

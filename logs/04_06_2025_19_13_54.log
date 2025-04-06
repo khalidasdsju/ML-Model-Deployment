@@ -1,0 +1,5 @@
+[ 2025-04-06 19:13:55,300 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-06 19:13:55,900 ] root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2025-04-06 19:13:55,900 ] root - INFO - Getting the data from mongodb
+[ 2025-04-06 19:13:55,900 ] root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2025-04-06 19:13:55,900 ] root - INFO - Exporting data from mongodb

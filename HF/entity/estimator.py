@@ -3,54 +3,27 @@ import sys
 from pandas import DataFrame
 from sklearn.pipeline import Pipeline
 
-from HF.exception import USvisaException
+from HF.exception import HFException
 from HF.logger import logging
 
 
 
 class TargetValueMapping:
     def __init__(self):
-        self.Certified:int = 0
-        self.Denied:int = 1
+        # Define the custom label-to-integer mapping
+        self.mapping = {
+            " No HF": 0,
+            "HF": 1
+        }
+
     def _asdict(self):
-        return self.__dict__
+        """
+        Returns the mapping dictionary.
+        """
+        return self.mapping
+
     def reverse_mapping(self):
-        mapping_response = self._asdict()
-        return dict(zip(mapping_response.values(),mapping_response.keys()))
-    
-
-
-
-class USvisaModel:
-    def __init__(self, preprocessing_object: Pipeline, trained_model_object: object):
         """
-        :param preprocessing_object: Input Object of preprocesser
-        :param trained_model_object: Input Object of trained model 
+        Returns the inverse of the mapping dictionary, i.e., from int to label.
         """
-        self.preprocessing_object = preprocessing_object
-        self.trained_model_object = trained_model_object
-
-    def predict(self, dataframe: DataFrame) -> DataFrame:
-        """
-        Function accepts raw inputs and then transformed raw input using preprocessing_object
-        which guarantees that the inputs are in the same format as the training data
-        At last it performs prediction on transformed features
-        """
-        logging.info("Entered predict method of UTruckModel class")
-
-        try:
-            logging.info("Using the trained model to get predictions")
-
-            transformed_feature = self.preprocessing_object.transform(dataframe)
-
-            logging.info("Used the trained model to get predictions")
-            return self.trained_model_object.predict(transformed_feature)
-
-        except Exception as e:
-            raise HFException(e, sys) from e
-
-    def __repr__(self):
-        return f"{type(self.trained_model_object).__name__}()"
-
-    def __str__(self):
-        return f"{type(self.trained_model_object).__name__}()"
+        return {v: k for k, v in self.mapping.items()}

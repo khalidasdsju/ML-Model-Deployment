@@ -6,6 +6,7 @@ import pandas as pd
 
 from evidently.calculations.stattests.registry import StatTest
 from evidently.calculations.stattests.registry import register_stattest
+from evidently.core import ColumnType
 
 
 def squared_paired_dist(x: np.ndarray, y: np.ndarray) -> np.ndarray:
@@ -29,7 +30,16 @@ def sigma_median(dist: np.ndarray) -> float:
     Returns:
         sigma: the median sigma
     """
-    sigma = (0.5 * np.percentile(dist.flatten(), 50, interpolation="nearest")) ** 0.5
+    sigma = (
+        0.5
+        * np.percentile(
+            # error: No overload variant of "percentile" matches argument types
+            # "ndarray[Any, Any]", "int", "str"  [call-overload]
+            a=dist.flatten(),
+            q=50,
+            interpolation="nearest",  # type: ignore[call-overload]
+        )
+    ) ** 0.5
     if sigma == 0:
         return (0.5 * 1) ** 0.5
     return sigma
@@ -113,10 +123,10 @@ def mmd_pval(x: np.ndarray, y: np.ndarray) -> Tuple[float, float]:
 def _mmd_stattest(
     reference_data: pd.Series,
     current_data: pd.Series,
-    feature_type: str,
+    feature_type: ColumnType,
     threshold: float,
 ) -> Tuple[float, bool]:
-    """Run the  emperical maximum mean discrepancy test.
+    """Run the  empirical maximum mean discrepancy test.
     Args:
         reference_data: reference data
         current_data: current data
@@ -126,20 +136,19 @@ def _mmd_stattest(
         p_value: p-value
         test_result: whether the drift is detected
     """
-    reference_data = reference_data.values.reshape(-1, 1)
-    current_data = current_data.values.reshape(-1, 1)
+    transformed_ref = reference_data.to_numpy().reshape(-1, 1)
+    transformed_curr = current_data.to_numpy().reshape(-1, 1)
 
-    p_value, mmd = mmd_pval(reference_data, current_data)
+    p_value, mmd = mmd_pval(transformed_ref, transformed_curr)
 
     return p_value, p_value < threshold
 
 
-emperical_mmd = StatTest(
-    name="emperical_mmd",
-    display_name="emperical_mmd",
-    func=_mmd_stattest,
-    allowed_feature_types=["num"],
+empirical_mmd = StatTest(
+    name="empirical_mmd",
+    display_name="empirical_mmd",
+    allowed_feature_types=[ColumnType.Numerical],
     default_threshold=0.1,
 )
 
-register_stattest(emperical_mmd)
+register_stattest(empirical_mmd, _mmd_stattest)

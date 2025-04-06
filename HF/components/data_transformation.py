@@ -7,7 +7,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder, PowerTransformer
 from sklearn.compose import ColumnTransformer
 
-from HF.constants import TARGET_COLUMN, SCHEMA_FILE_PATH, CURRENT_YEAR
+from HF.constants import TARGET_COLUMN, SCHEMA_FILE_PATH
 from HF.entity.config_entity import DataTransformationConfig
 from HF.entity.artifact_entity import DataTransformationArtifact, DataIngestionArtifact, DataValidationArtifact
 from HF.exception import HFException
