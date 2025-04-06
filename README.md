@@ -21,3 +21,6 @@
 ####     ![alt text](<Data Ingestion.png>)
 ####    2. Data Drift with Evidently(MLOps Tool) & Data Validation
 ####      ![alt text](<Data Validation.png>)
+####    3. Data Transformation & Model training 
+####      ![alt text](<Data Transformation-1.png>)
+####      
