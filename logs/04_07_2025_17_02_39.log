@@ -1,0 +1,4 @@
+[ 2025-04-07 17:02:39,690 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-07 17:02:40,285 ] root - INFO - Pipeline started
+[ 2025-04-07 17:02:40,285 ] root - INFO - Starting data ingestion
+[ 2025-04-07 17:02:40,285 ] root - INFO - Initiating data ingestion

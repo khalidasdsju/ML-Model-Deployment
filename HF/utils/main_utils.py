@@ -1,117 +1,51 @@
-import os
-import sys
-
-import numpy as np
-import dill
+# HF/utils/main_utils.py
 import yaml
-from pandas import DataFrame
-
+import numpy as np
+import joblib
 from HF.exception import HFException
-from HF.logger import logging
-
-
 def read_yaml_file(file_path: str) -> dict:
+    """
+    Reads the YAML file and returns its content as a dictionary
+    """
     try:
-        with open(file_path, "rb") as yaml_file:
-            return yaml.safe_load(yaml_file)
-
+        with open(file_path, "r") as file:
+            return yaml.safe_load(file)
     except Exception as e:
-        raise HFException(e, sys) from e
-    
+        raise HFException(f"Error reading YAML file at {file_path}: {e}", sys)
 
-
-def write_yaml_file(file_path: str, content: object, replace: bool = False) -> None:
+def write_yaml_file(file_path: str, content: dict) -> None:
+    """
+    Writes the content into the specified YAML file
+    """
     try:
-        if replace:
-            if os.path.exists(file_path):
-                os.remove(file_path)
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "w") as file:
             yaml.dump(content, file)
     except Exception as e:
-        raise HFException(e, sys) from e
-    
+        raise HFException(f"Error writing to YAML file at {file_path}: {e}", sys)
 
-
-
-def load_object(file_path: str) -> object:
-    logging.info("Entered the load_object method of utils")
-
-    try:
-
-        with open(file_path, "rb") as file_obj:
-            obj = dill.load(file_obj)
-
-        logging.info("Exited the load_object method of utils")
-
-        return obj
-
-    except Exception as e:
-        raise HFException(e, sys) from e
-    
-
-
-def save_numpy_array_data(file_path: str, array: np.array):
+def save_numpy_array_data(file_path: str, data: np.ndarray) -> None:
     """
-    Save numpy array data to file
-    file_path: str location of file to save
-    array: np.array data to save
+    Saves numpy array data to the specified path
     """
     try:
-        dir_path = os.path.dirname(file_path)
-        os.makedirs(dir_path, exist_ok=True)
-        with open(file_path, 'wb') as file_obj:
-            np.save(file_obj, array)
+        np.save(file_path, data)
     except Exception as e:
-        raise HFException(e, sys) from e
-    
-
-
-
-def load_numpy_array_data(file_path: str) -> np.array:
-    """
-    load numpy array data from file
-    file_path: str location of file to load
-    return: np.array data loaded
-    """
-    try:
-        with open(file_path, 'rb') as file_obj:
-            return np.load(file_obj)
-    except Exception as e:
-        raise HFException(e, sys) from e
-
-
-
+        raise HFException(f"Error saving numpy array to {file_path}: {e}", sys)
 
 def save_object(file_path: str, obj: object) -> None:
-    logging.info("Entered the save_object method of utils")
-
-    try:
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        with open(file_path, "wb") as file_obj:
-            dill.dump(obj, file_obj)
-
-        logging.info("Exited the save_object method of utils")
-
-    except Exception as e:
-        raise HFException(e, sys) from e
-
-
-
-def drop_columns(df: DataFrame, cols: list)-> DataFrame:
-
     """
-    drop the columns form a pandas DataFrame
-    df: pandas DataFrame
-    cols: list of columns to be dropped
+    Saves the given object as a pickle file
     """
-    logging.info("Entered drop_columns methon of utils")
-
     try:
-        df = df.drop(columns=cols, axis=1)
-
-        logging.info("Exited the drop_columns method of utils")
-        
-        return df
+        joblib.dump(obj, file_path)
     except Exception as e:
-        raise HFException(e, sys) from e
+        raise HFException(f"Error saving object to {file_path}: {e}", sys)
+
+def create_directories(directories: list):
+    """
+    Create directories if they do not exist.
+    :param directories: list of directory paths
+    """
+    for directory in directories:
+        os.makedirs(directory, exist_ok=True)
+        print(f"Directory {directory} created or already exists.")

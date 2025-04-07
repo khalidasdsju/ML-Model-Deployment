@@ -1,0 +1,4 @@
+[ 2025-04-07 15:36:55,832 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-07 15:36:56,408 ] root - INFO - Starting data ingestion.
+[ 2025-04-07 15:36:56,408 ] root - INFO - Reading dataset...
+[ 2025-04-07 15:36:56,415 ] root - INFO - Data Ingestion Completed: Train - artifact/04_07_2025_15_36_55/data_ingestion/data_ingestion/train.csv, Test - artifact/04_07_2025_15_36_55/data_ingestion/data_ingestion/test.csv

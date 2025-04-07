@@ -1,19 +1,15 @@
-from dataclasses import dataclass
-
-
-@dataclass
+# HF/entity/artifact_entity.py
 class DataIngestionArtifact:
-    trained_file_path:str 
-    test_file_path:str 
+    def __init__(self, trained_file_path: str, test_file_path: str):
+        self.trained_file_path = trained_file_path
+        self.test_file_path = test_file_path
 
-@dataclass
 class DataValidationArtifact:
-    validation_status:bool
-    message: str
-    drift_report_file_path: str
+    def __init__(self, drift_report_file_path: str):
+        self.drift_report_file_path = drift_report_file_path
 
-@dataclass
 class DataTransformationArtifact:
-    transformed_object_file_path:str 
-    transformed_train_file_path:str
-    transformed_test_file_path:str
+    def __init__(self, transformed_train_file_path: str, transformed_test_file_path: str, transformed_object_file_path: str):
+        self.transformed_train_file_path = transformed_train_file_path
+        self.transformed_test_file_path = transformed_test_file_path
+        self.transformed_object_file_path = transformed_object_file_path
