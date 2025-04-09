@@ -5,10 +5,15 @@ import yaml
 import pandas as pd
 import numpy as np
 from typing import List, Dict, Optional, Union
-from fastapi import FastAPI, HTTPException, Query, Depends
+from fastapi import FastAPI, HTTPException, Query, Depends, File, UploadFile, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse, FileResponse
 from pydantic import BaseModel, Field
 from datetime import datetime
+import io
+import csv
 
 # Add the project root to the path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -30,6 +35,12 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all methods
     allow_headers=["*"],  # Allow all headers
 )
+
+# Mount static files
+app.mount("/static", StaticFiles(directory="templates/static"), name="static")
+
+# Set up templates
+templates = Jinja2Templates(directory="templates")
 
 # Global variables for model and parameters
 MODEL = None
@@ -281,9 +292,14 @@ def make_prediction(patient_data: Dict):
 
     return response
 
-@app.get("/")
-async def root():
-    """Root endpoint"""
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    """Serve the main HTML page"""
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/api")
+async def api_root():
+    """Root endpoint for API"""
     return {
         "message": "Heart Failure Prediction API",
         "docs": "/docs",
@@ -340,6 +356,63 @@ async def batch_predict(request: BatchPredictionRequest):
         "negative_percentage": (negative / total) * 100 if total > 0 else 0
     }
 
+    return {
+        "predictions": predictions,
+        "summary": summary
+    }
+
+@app.post("/batch-predict-file")
+async def batch_predict_file(file: UploadFile = File(...)):
+    """Predict heart failure for multiple patients from a CSV file"""
+    # Read CSV file
+    content = await file.read()
+    csv_data = content.decode('utf-8').splitlines()
+    
+    # Parse CSV
+    reader = csv.DictReader(csv_data)
+    
+    # Convert to list of patient data
+    patients = []
+    for row in reader:
+        # Convert string values to appropriate types
+        patient_data = {}
+        for key, value in row.items():
+            if value.strip() == '':
+                continue
+                
+            # Try to convert to number if possible
+            try:
+                if '.' in value:
+                    patient_data[key] = float(value)
+                else:
+                    patient_data[key] = int(value)
+            except ValueError:
+                patient_data[key] = value
+                
+        patients.append(patient_data)
+    
+    # Make predictions
+    predictions = []
+    for patient_data in patients:
+        try:
+            result = make_prediction(patient_data)
+            predictions.append(result)
+        except Exception as e:
+            logging.error(f"Error predicting for patient: {e}")
+    
+    # Calculate summary statistics
+    total = len(predictions)
+    positive = sum(1 for p in predictions if p["prediction"] == 1)
+    negative = total - positive
+    
+    summary = {
+        "total_patients": total,
+        "positive_predictions": positive,
+        "negative_predictions": negative,
+        "positive_percentage": (positive / total) * 100 if total > 0 else 0,
+        "negative_percentage": (negative / total) * 100 if total > 0 else 0
+    }
+    
     return {
         "predictions": predictions,
         "summary": summary

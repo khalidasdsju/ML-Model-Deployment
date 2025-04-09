@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Failure Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h5 class="text-white">Heart Failure Prediction</h5>
+                        <hr class="sidebar-divider">
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-page="dashboard">
+                                <i class="bi bi-speedometer2 me-2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="prediction">
+                                <i class="bi bi-heart-pulse me-2"></i>
+                                Single Prediction
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="batch">
+                                <i class="bi bi-people me-2"></i>
+                                Batch Prediction
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="history">
+                                <i class="bi bi-clock-history me-2"></i>
+                                History
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="about">
+                                <i class="bi bi-info-circle me-2"></i>
+                                About
+                            </a>
+                        </li>
+                    </ul>
+                    <hr class="sidebar-divider">
+                    <div class="text-center text-white small">
+                        <p>Model Version: <span id="model-version">Local</span></p>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2" id="page-title">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-sidebar">
+                            <i class="bi bi-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Page content will be loaded here -->
+                <div id="page-content">
+                    <!-- Dashboard Page -->
+                    <div id="dashboard-page" class="page-content active">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card bg-primary text-white h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="text-uppercase">Total Predictions</h6>
+                                                <h1 class="display-4" id="total-predictions">0</h1>
+                                            </div>
+                                            <i class="bi bi-bar-chart-fill display-4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card bg-success text-white h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="text-uppercase">Negative Results</h6>
+                                                <h1 class="display-4" id="negative-predictions">0</h1>
+                                            </div>
+                                            <i class="bi bi-heart display-4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card bg-danger text-white h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="text-uppercase">Positive Results</h6>
+                                                <h1 class="display-4" id="positive-predictions">0</h1>
+                                            </div>
+                                            <i class="bi bi-heart-pulse display-4"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Prediction Distribution</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="prediction-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Important Features</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="important-features">
+                                            <p class="text-center text-muted">No data available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Recent Predictions</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Patient ID</th>
+                                                        <th>Probability</th>
+                                                        <th>Prediction</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="recent-predictions">
+                                                    <tr>
+                                                        <td colspan="5" class="text-center">No recent predictions</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Prediction Page -->
+                    <div id="prediction-page" class="page-content">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Patient Information</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="prediction-form">
+                                            <div class="row">
+                                                <!-- Required Features -->
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="FS" class="form-label">Fractional Shortening (%)</label>
+                                                    <input type="number" class="form-control" id="FS" name="FS" required step="0.1" value="25">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="DT" class="form-label">Deceleration Time (ms)</label>
+                                                    <input type="number" class="form-control" id="DT" name="DT" required step="1" value="160">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="NYHA" class="form-label">NYHA Classification</label>
+                                                    <select class="form-select" id="NYHA" name="NYHA" required>
+                                                        <option value="1">Class I</option>
+                                                        <option value="2">Class II</option>
+                                                        <option value="3" selected>Class III</option>
+                                                        <option value="4">Class IV</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="HR" class="form-label">Heart Rate (bpm)</label>
+                                                    <input type="number" class="form-control" id="HR" name="HR" required step="1" value="95">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="BNP" class="form-label">BNP (pg/mL)</label>
+                                                    <input type="number" class="form-control" id="BNP" name="BNP" required step="1" value="800">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="LVIDs" class="form-label">LVIDs (cm)</label>
+                                                    <input type="number" class="form-control" id="LVIDs" name="LVIDs" required step="0.1" value="4.8">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="BMI" class="form-label">BMI (kg/m²)</label>
+                                                    <input type="number" class="form-control" id="BMI" name="BMI" required step="0.1" value="28.5">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="LAV" class="form-label">Left Atrial Volume (mL)</label>
+                                                    <input type="number" class="form-control" id="LAV" name="LAV" required step="1" value="45">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="Wall_Subendocardial" class="form-label">Subendocardial Wall</label>
+                                                    <select class="form-select" id="Wall_Subendocardial" name="Wall_Subendocardial" required>
+                                                        <option value="0">No</option>
+                                                        <option value="1" selected>Yes</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="LDLc" class="form-label">LDL Cholesterol (mg/dL)</label>
+                                                    <input type="number" class="form-control" id="LDLc" name="LDLc" required step="1" value="140">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="Age" class="form-label">Age (years)</label>
+                                                    <input type="number" class="form-control" id="Age" name="Age" required step="1" value="65">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="ECG_T_inversion" class="form-label">ECG T-wave Inversion</label>
+                                                    <select class="form-select" id="ECG_T_inversion" name="ECG_T_inversion" required>
+                                                        <option value="0">No</option>
+                                                        <option value="1" selected>Yes</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="ICT" class="form-label">Isovolumic Contraction Time (ms)</label>
+                                                    <input type="number" class="form-control" id="ICT" name="ICT" required step="1" value="110">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="RBS" class="form-label">Random Blood Sugar (mg/dL)</label>
+                                                    <input type="number" class="form-control" id="RBS" name="RBS" required step="1" value="180">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="EA" class="form-label">E/A Ratio</label>
+                                                    <input type="number" class="form-control" id="EA" name="EA" required step="0.1" value="0.8">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="Chest_pain" class="form-label">Chest Pain</label>
+                                                    <select class="form-select" id="Chest_pain" name="Chest_pain" required>
+                                                        <option value="0">No</option>
+                                                        <option value="1" selected>Yes</option>
+                                                    </select>
+                                                </div>
+
+                                                <!-- Optional Features -->
+                                                <div class="col-12 mt-3">
+                                                    <h6 class="text-muted">Optional Information</h6>
+                                                    <hr>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="LVEF" class="form-label">LVEF (%)</label>
+                                                    <input type="number" class="form-control" id="LVEF" name="LVEF" step="1" value="45">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="Sex" class="form-label">Sex</label>
+                                                    <select class="form-select" id="Sex" name="Sex">
+                                                        <option value="">Select</option>
+                                                        <option value="0">Female</option>
+                                                        <option value="1" selected>Male</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="HTN" class="form-label">Hypertension</label>
+                                                    <select class="form-select" id="HTN" name="HTN">
+                                                        <option value="">Select</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1" selected>Yes</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="DM" class="form-label">Diabetes Mellitus</label>
+                                                    <select class="form-select" id="DM" name="DM">
+                                                        <option value="">Select</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1" selected>Yes</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="Smoker" class="form-label">Smoker</label>
+                                                    <select class="form-select" id="Smoker" name="Smoker">
+                                                        <option value="">Select</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1" selected>Yes</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="DL" class="form-label">Dyslipidemia</label>
+                                                    <select class="form-select" id="DL" name="DL">
+                                                        <option value="">Select</option>
+                                                        <option value="0">No</option>
+                                                        <option value="1" selected>Yes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                                <button type="reset" class="btn btn-outline-secondary me-md-2">Reset</button>
+                                                <button type="submit" class="btn btn-primary">Predict</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Prediction Result</h5>
+                                    </div>
+                                    <div class="card-body" id="prediction-result">
+                                        <div class="text-center text-muted">
+                                            <i class="bi bi-arrow-left-circle display-4"></i>
+                                            <p class="mt-3">Fill out the form and click "Predict" to see the result</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Feature Importance</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="feature-importance">
+                                            <p class="text-center text-muted">Make a prediction to see feature importance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Batch Prediction Page -->
+                    <div id="batch-page" class="page-content">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Batch Prediction</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form id="batch-form">
+                                            <div class="mb-3">
+                                                <label for="csv-file" class="form-label">Upload CSV File</label>
+                                                <input class="form-control" type="file" id="csv-file" accept=".csv">
+                                                <div class="form-text">CSV file should contain patient data with required features.</div>
+                                            </div>
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                <button type="button" class="btn btn-outline-secondary me-md-2" id="download-template">Download Template</button>
+                                                <button type="submit" class="btn btn-primary">Run Batch Prediction</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title mb-0">Batch Results</h5>
+                                        <button class="btn btn-sm btn-outline-primary" id="download-results" disabled>Download Results</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="batch-results">
+                                            <p class="text-center text-muted">No batch results available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History Page -->
+                    <div id="history-page" class="page-content">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title mb-0">Prediction History</h5>
+                                        <button class="btn btn-sm btn-outline-danger" id="clear-history">Clear History</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Patient ID</th>
+                                                        <th>Probability</th>
+                                                        <th>Prediction</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="history-list">
+                                                    <tr>
+                                                        <td colspan="5" class="text-center">No prediction history</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Page -->
+                    <div id="about-page" class="page-content">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">About Heart Failure Prediction</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4>Heart Failure Prediction Model</h4>
+                                        <p>This application uses machine learning to predict the risk of heart failure based on patient data. The model has been trained on clinical data and can help identify patients at risk of developing heart failure.</p>
+                                        
+                                        <h4>How It Works</h4>
+                                        <p>The prediction model analyzes various clinical parameters including:</p>
+                                        <ul>
+                                            <li>Demographic information (age, sex)</li>
+                                            <li>Clinical measurements (heart rate, blood pressure)</li>
+                                            <li>Echocardiographic parameters (LVEF, FS, LVIDs)</li>
+                                            <li>Laboratory values (BNP, LDL cholesterol)</li>
+                                            <li>Medical history (hypertension, diabetes)</li>
+                                        </ul>
+                                        
+                                        <h4>Model Performance</h4>
+                                        <p>The current model achieves:</p>
+                                        <ul>
+                                            <li>Accuracy: ~85%</li>
+                                            <li>Sensitivity: ~82%</li>
+                                            <li>Specificity: ~88%</li>
+                                            <li>AUC-ROC: 0.89</li>
+                                        </ul>
+                                        
+                                        <h4>Disclaimer</h4>
+                                        <p>This tool is intended to assist healthcare professionals and should not replace clinical judgment. Always consult with a qualified healthcare provider for diagnosis and treatment decisions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal for prediction details -->
+    <div class="modal fade" id="prediction-details-modal" tabindex="-1" aria-labelledby="prediction-details-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="prediction-details-label">Prediction Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="prediction-details-content">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}"></script>
+</body>
+</html>
