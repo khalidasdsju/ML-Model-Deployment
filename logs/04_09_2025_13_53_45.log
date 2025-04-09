@@ -1,0 +1,28 @@
+[ 2025-04-09 13:53:46,089 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-09 13:53:46,739 ] root - INFO - Starting model training
+[ 2025-04-09 13:53:46,739 ] root - INFO - Pipeline started
+[ 2025-04-09 13:53:46,739 ] root - INFO - Starting model pusher
+[ 2025-04-09 13:53:46,739 ] root - INFO - Starting model trainer
+[ 2025-04-09 13:53:46,739 ] root - INFO - Starting data transformation
+[ 2025-04-09 13:53:46,739 ] root - INFO - Starting data ingestion
+[ 2025-04-09 13:53:46,739 ] root - INFO - Initiating data ingestion
+[ 2025-04-09 13:53:46,739 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_13_53_45/data_ingestion/feature_store
+[ 2025-04-09 13:53:46,739 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_13_53_45/data_ingestion/ingested
+[ 2025-04-09 13:53:46,739 ] root - INFO - Loading sample data
+[ 2025-04-09 13:53:46,739 ] root - INFO - Loading sample data from existing train.csv
+[ 2025-04-09 13:53:46,741 ] root - INFO - Shape of dataframe: (400, 45)
+[ 2025-04-09 13:53:46,745 ] root - INFO - Data saved to feature store at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_13_53_45/data_ingestion/feature_store/Study_Data.csv
+[ 2025-04-09 13:53:46,745 ] root - INFO - Splitting data into train and test sets
+[ 2025-04-09 13:53:46,748 ] root - INFO - Train and test data saved at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_13_53_45/data_ingestion/ingested/train.csv, /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_13_53_45/data_ingestion/ingested/test.csv
+[ 2025-04-09 13:53:46,748 ] root - INFO - Data ingestion completed
+[ 2025-04-09 13:53:46,748 ] root - INFO - Data Transformation Initialization
+[ 2025-04-09 13:53:46,749 ] root - INFO - Starting data transformation
+[ 2025-04-09 13:53:46,751 ] root - INFO - Available columns in train_df: ['Age', 'Sex', 'BMI', 'NYHA', 'HR', 'HTN', 'DM', 'Smoker', 'DL', 'BA', 'RBS', 'HbA1C', 'Creatinine', 'Na', 'K', 'Cl', 'Hb', 'TropI', 'CXR', 'ECG', 'LVIDd', 'FS', 'LVIDs', 'LVEF', 'RWMA', 'LAV', 'MI', 'ACS', 'Wall', 'Thrombolysis', 'ICT', 'IRT', 'MR', 'EA', 'DT', 'MPI', 'RR', 'Chest_pain', 'TC', 'LDLc', 'HDLc', 'TG', 'BNP', 'HF']
+[ 2025-04-09 13:53:46,751 ] root - INFO - Creating data transformer object
+[ 2025-04-09 13:53:46,760 ] root - INFO - Handling imbalanced data using SMOTEENN
+[ 2025-04-09 13:53:46,790 ] root - INFO - Data Transformation Artifact: <HF.entity.artifact_entity.DataTransformationArtifact object at 0x16dbac6d0>
+[ 2025-04-09 13:53:46,790 ] root - INFO - Data transformation completed
+[ 2025-04-09 13:53:46,790 ] root - INFO - Initiating model trainer
+[ 2025-04-09 13:53:46,790 ] root - INFO - Loading transformed training data from /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_13_53_45/data_transformation/transformed/train.npy
+[ 2025-04-09 13:53:46,790 ] root - ERROR - Error in model training: Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/pipline/training_pipeline.py] line number [126] error message [Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/pipline/training_pipeline.py] line number [105] error message [Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/pipline/training_pipeline.py] line number [92] error message [Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/components/model_trainer.py] line number [80] error message [Error in model trainer: Object arrays cannot be loaded when allow_pickle=False]]]]
+[ 2025-04-09 13:53:46,790 ] root - ERROR - Error in model demo: Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/pipline/training_pipeline.py] line number [126] error message [Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/pipline/training_pipeline.py] line number [105] error message [Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/pipline/training_pipeline.py] line number [92] error message [Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/components/model_trainer.py] line number [80] error message [Error in model trainer: Object arrays cannot be loaded when allow_pickle=False]]]]

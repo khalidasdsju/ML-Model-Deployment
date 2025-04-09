@@ -1,0 +1,69 @@
+[ 2025-04-09 14:01:40,480 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-09 14:01:41,108 ] root - INFO - Starting model training
+[ 2025-04-09 14:01:41,108 ] root - INFO - Pipeline started
+[ 2025-04-09 14:01:41,108 ] root - INFO - Starting model pusher
+[ 2025-04-09 14:01:41,108 ] root - INFO - Starting model trainer
+[ 2025-04-09 14:01:41,108 ] root - INFO - Starting data transformation
+[ 2025-04-09 14:01:41,108 ] root - INFO - Starting data ingestion
+[ 2025-04-09 14:01:41,108 ] root - INFO - Initiating data ingestion
+[ 2025-04-09 14:01:41,108 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/data_ingestion/feature_store
+[ 2025-04-09 14:01:41,108 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/data_ingestion/ingested
+[ 2025-04-09 14:01:41,108 ] root - INFO - Loading sample data
+[ 2025-04-09 14:01:41,108 ] root - INFO - Loading sample data from existing train.csv
+[ 2025-04-09 14:01:41,111 ] root - INFO - Shape of dataframe: (400, 45)
+[ 2025-04-09 14:01:41,114 ] root - INFO - Data saved to feature store at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/data_ingestion/feature_store/Study_Data.csv
+[ 2025-04-09 14:01:41,114 ] root - INFO - Splitting data into train and test sets
+[ 2025-04-09 14:01:41,118 ] root - INFO - Train and test data saved at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/data_ingestion/ingested/train.csv, /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/data_ingestion/ingested/test.csv
+[ 2025-04-09 14:01:41,118 ] root - INFO - Data ingestion completed
+[ 2025-04-09 14:01:41,118 ] root - INFO - Data Transformation Initialization
+[ 2025-04-09 14:01:41,118 ] root - INFO - Starting data transformation
+[ 2025-04-09 14:01:41,121 ] root - INFO - Available columns in train_df: ['Age', 'Sex', 'BMI', 'NYHA', 'HR', 'HTN', 'DM', 'Smoker', 'DL', 'BA', 'RBS', 'HbA1C', 'Creatinine', 'Na', 'K', 'Cl', 'Hb', 'TropI', 'CXR', 'ECG', 'LVIDd', 'FS', 'LVIDs', 'LVEF', 'RWMA', 'LAV', 'MI', 'ACS', 'Wall', 'Thrombolysis', 'ICT', 'IRT', 'MR', 'EA', 'DT', 'MPI', 'RR', 'Chest_pain', 'TC', 'LDLc', 'HDLc', 'TG', 'BNP', 'HF']
+[ 2025-04-09 14:01:41,121 ] root - INFO - Creating data transformer object
+[ 2025-04-09 14:01:41,129 ] root - INFO - Handling imbalanced data using SMOTEENN
+[ 2025-04-09 14:01:41,190 ] root - INFO - Data Transformation Artifact: <HF.entity.artifact_entity.DataTransformationArtifact object at 0x31400d2b0>
+[ 2025-04-09 14:01:41,191 ] root - INFO - Data transformation completed
+[ 2025-04-09 14:01:41,191 ] root - INFO - Initiating model trainer
+[ 2025-04-09 14:01:41,191 ] root - INFO - Loading transformed training data from /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/data_transformation/transformed/train.npy
+[ 2025-04-09 14:01:41,191 ] root - INFO - Loading transformed testing data from /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/data_transformation/transformed/test.npy
+[ 2025-04-09 14:01:41,191 ] root - INFO - Converting string target values to numeric
+[ 2025-04-09 14:01:41,191 ] root - INFO - X_train shape: (201, 75), y_train shape: (201,)
+[ 2025-04-09 14:01:41,191 ] root - INFO - X_test shape: (80, 75), y_test shape: (80,)
+[ 2025-04-09 14:01:41,191 ] root - INFO - Training XGBoost model with optimized parameters
+[ 2025-04-09 14:01:41,430 ] root - INFO - Evaluating model performance
+[ 2025-04-09 14:01:41,434 ] root - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.78      0.74      0.76        38
+           1       0.77      0.81      0.79        42
+
+    accuracy                           0.78        80
+   macro avg       0.78      0.77      0.77        80
+weighted avg       0.78      0.78      0.77        80
+
+[ 2025-04-09 14:01:41,434 ] root - WARNING - Model accuracy 0.775 is below expected accuracy 0.85
+[ 2025-04-09 14:01:41,434 ] root - INFO - Model performance - Accuracy: 0.775, ROC AUC: 0.881578947368421, F1 Score: 0.7906976744186046
+[ 2025-04-09 14:01:41,435 ] root - INFO - Model saved at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/model_trainer/trained_model/xgboost_model.pkl
+[ 2025-04-09 14:01:41,435 ] root - INFO - Model trainer artifact: <HF.entity.artifact_entity.ModelTrainerArtifact object at 0x3141892e0>
+[ 2025-04-09 14:01:41,435 ] root - INFO - Model training completed
+[ 2025-04-09 14:01:41,435 ] root - INFO - Initiating model pusher
+[ 2025-04-09 14:01:41,436 ] root - INFO - Copied model to: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/model_pusher/xgboost_model.pkl
+[ 2025-04-09 14:01:41,436 ] root - INFO - Saved model for deployment at: saved_models/09_04_2025_14_01_40/xgboost_model.pkl
+[ 2025-04-09 14:01:41,436 ] root - INFO - Created latest model at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_14_01_40/model_pusher/latest/xgboost_model.pkl
+[ 2025-04-09 14:01:41,436 ] root - INFO - Model pusher artifact: <HF.entity.artifact_entity.ModelPusherArtifact object at 0x12ce12220>
+[ 2025-04-09 14:01:41,436 ] root - INFO - Model pushing completed
+[ 2025-04-09 14:01:41,436 ] root - INFO - Pipeline completed successfully
+[ 2025-04-09 14:01:41,436 ] root - INFO - Model training completed. Model saved at: saved_models/09_04_2025_14_01_40/xgboost_model.pkl
+[ 2025-04-09 14:01:41,436 ] root - INFO - Starting sample prediction
+[ 2025-04-09 14:01:41,437 ] root - INFO - Sample data saved to sample_data.csv
+[ 2025-04-09 14:01:41,437 ] root - INFO - Starting batch prediction on file: sample_data.csv
+[ 2025-04-09 14:01:41,438 ] root - INFO - Loaded data with shape: (4, 34)
+[ 2025-04-09 14:01:41,438 ] root - INFO - Starting prediction pipeline
+[ 2025-04-09 14:01:41,438 ] root - INFO - Initiating model prediction
+[ 2025-04-09 14:01:41,438 ] root - INFO - Making predictions
+[ 2025-04-09 14:01:41,438 ] root - INFO - Loading model from saved_models/latest/xgboost_model.pkl
+[ 2025-04-09 14:01:41,439 ] root - INFO - Preprocessing input data for prediction
+[ 2025-04-09 14:01:41,439 ] root - INFO - Loading prediction parameters from config/prediction_params.yaml
+[ 2025-04-09 14:01:41,441 ] root - ERROR - Error in prediction pipeline: Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/components/model_prediction.py] line number [176] error message [Error in model prediction: Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/components/model_prediction.py] line number [112] error message [Error making predictions: Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/components/model_prediction.py] line number [81] error message [Error preprocessing data: Missing required columns: ['Wall_Subendocardial', 'ECG_T_inversion']]]]
+[ 2025-04-09 14:01:41,441 ] root - INFO - Batch prediction completed. Results saved to: prediction_error.txt
+[ 2025-04-09 14:01:41,442 ] root - ERROR - Error in sample prediction: "None of [Index(['Probability', 'Prediction'], dtype='object')] are in the [columns]"
+[ 2025-04-09 14:01:41,442 ] root - ERROR - Error in demo: "None of [Index(['Probability', 'Prediction'], dtype='object')] are in the [columns]"

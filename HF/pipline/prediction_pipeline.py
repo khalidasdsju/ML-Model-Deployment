@@ -27,7 +27,16 @@ class PredictionPipeline:
             return prediction_artifact
 
         except Exception as e:
-            raise HFException(f"Error in prediction pipeline: {e}", sys)
+            logging.error(f"Error in prediction pipeline: {e}")
+            # Create a default prediction artifact with error information
+            error_file_path = "prediction_error.txt"
+            with open(error_file_path, "w") as f:
+                f.write(f"Error in prediction: {str(e)}")
+
+            return ModelPredictionArtifact(
+                prediction_file_path=error_file_path,
+                model_accuracy=0.0
+            )
 
     def run_batch_prediction(self, file_path):
         try:
@@ -44,4 +53,13 @@ class PredictionPipeline:
             return prediction_artifact
 
         except Exception as e:
-            raise HFException(f"Error in batch prediction: {e}", sys)
+            logging.error(f"Error in batch prediction: {e}")
+            # Create a default prediction artifact with error information
+            error_file_path = "batch_prediction_error.txt"
+            with open(error_file_path, "w") as f:
+                f.write(f"Error in batch prediction: {str(e)}")
+
+            return ModelPredictionArtifact(
+                prediction_file_path=error_file_path,
+                model_accuracy=0.0
+            )

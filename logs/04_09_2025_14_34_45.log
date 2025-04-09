@@ -1,0 +1,8 @@
+[ 2025-04-09 14:34:45,422 ] root - INFO - Plot style set successfully
+[ 2025-04-09 14:34:45,422 ] root - INFO - Report read from reports/analysis_summary.txt
+[ 2025-04-09 14:34:45,423 ] root - INFO - Report read from reports/technical_analysis.txt
+[ 2025-04-09 14:34:45,423 ] root - INFO - Report read from reports/clinical_interpretation.txt
+[ 2025-04-09 14:34:45,423 ] root - INFO - Report saved to reports/combined_report.txt
+[ 2025-04-09 14:34:45,423 ] root - INFO - Combined report generated successfully
+[ 2025-04-09 14:34:45,423 ] root - INFO - Report saved to reports/executive_summary.txt
+[ 2025-04-09 14:34:45,423 ] root - INFO - Executive summary generated successfully

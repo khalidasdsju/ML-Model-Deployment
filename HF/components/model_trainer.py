@@ -77,14 +77,21 @@ class ModelTrainer:
             test_file_path = self.data_transformation_artifact.transformed_test_file_path
 
             logging.info(f"Loading transformed training data from {train_file_path}")
-            train_arr = np.load(train_file_path)
+            train_arr = np.load(train_file_path, allow_pickle=True)
 
             logging.info(f"Loading transformed testing data from {test_file_path}")
-            test_arr = np.load(test_file_path)
+            test_arr = np.load(test_file_path, allow_pickle=True)
 
             # Split into features and target
             X_train, y_train = train_arr[:, :-1], train_arr[:, -1]
             X_test, y_test = test_arr[:, :-1], test_arr[:, -1]
+
+            # Convert target values to numeric if they are strings
+            if isinstance(y_train[0], str):
+                logging.info("Converting string target values to numeric")
+                # Map 'HF' to 1 and 'No HF' to 0
+                y_train = np.array([1 if y == 'HF' else 0 for y in y_train])
+                y_test = np.array([1 if y == 'HF' else 0 for y in y_test])
 
             logging.info(f"X_train shape: {X_train.shape}, y_train shape: {y_train.shape}")
             logging.info(f"X_test shape: {X_test.shape}, y_test shape: {y_test.shape}")
