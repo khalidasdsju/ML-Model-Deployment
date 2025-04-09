@@ -5,8 +5,10 @@ class DataIngestionArtifact:
         self.test_file_path = test_file_path
 
 class DataValidationArtifact:
-    def __init__(self, drift_report_file_path: str):
+    def __init__(self, drift_report_file_path: str, validation_status: bool = True, message: str = ""):
         self.drift_report_file_path = drift_report_file_path
+        self.validation_status = validation_status
+        self.message = message
 
 class DataTransformationArtifact:
     def __init__(self, transformed_train_file_path: str, transformed_test_file_path: str, transformed_object_file_path: str):

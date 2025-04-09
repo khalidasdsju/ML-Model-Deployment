@@ -6,7 +6,7 @@ from HF.logger import logging
 from HF.entity.config_entity import DataIngestionConfig
 from HF.entity.artifact_entity import DataIngestionArtifact
 from sklearn.model_selection import train_test_split
-from HF.data_access import StudyData
+# Removed StudyData import as we're using sample data instead
 
 class DataIngestion:
     def __init__(self, data_ingestion_config: DataIngestionConfig):
@@ -15,25 +15,33 @@ class DataIngestion:
         except Exception as e:
             raise HFException(e, sys)
 
-    def export_data_into_feature_store(self) -> pd.DataFrame:
+    def load_sample_data(self) -> pd.DataFrame:
         try:
-            logging.info("Exporting data from MongoDB")
-            # Assuming StudyData handles the data fetching from MongoDB
-            study_data = StudyData()
-            dataframe = study_data.export_collection_as_dataframe(
-                collection_name=self.data_ingestion_config.collection_name
-            )
+            logging.info("Loading sample data from existing train.csv")
+            # Use the existing train.csv file as a sample data source
+            sample_data_path = "/Users/khalid/Desktop/ML-Model-Deployment/artifact/04_07_2025_15_36_55/data_ingestion/data_ingestion/train.csv"
+            if not os.path.exists(sample_data_path):
+                raise FileNotFoundError(f"Sample data file not found: {sample_data_path}")
+
+            dataframe = pd.read_csv(sample_data_path)
             logging.info(f"Shape of dataframe: {dataframe.shape}")
             return dataframe
         except Exception as e:
-            raise HFException(f"Error exporting data: {e}", sys)
+            raise HFException(f"Error loading sample data: {e}", sys)
 
     def create_directories(self):
         """Ensure all required directories exist"""
-        directory_path = self.data_ingestion_config.feature_store_path
-        if not os.path.exists(directory_path):
-            logging.info(f"Creating directory: {directory_path}")
-            os.makedirs(directory_path)
+        # Create directory for feature store
+        feature_store_dir = os.path.dirname(self.data_ingestion_config.feature_store_file_path)
+        if not os.path.exists(feature_store_dir):
+            logging.info(f"Creating directory: {feature_store_dir}")
+            os.makedirs(feature_store_dir, exist_ok=True)
+
+        # Create directory for training and testing files
+        train_test_dir = os.path.dirname(self.data_ingestion_config.training_file_path)
+        if not os.path.exists(train_test_dir):
+            logging.info(f"Creating directory: {train_test_dir}")
+            os.makedirs(train_test_dir, exist_ok=True)
 
     def split_data_as_train_test(self, dataframe: pd.DataFrame) -> None:
         try:
@@ -48,17 +56,21 @@ class DataIngestion:
     def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:
             logging.info("Initiating data ingestion")
-            
-            # Check if the raw data path exists
-            if not os.path.exists(self.data_ingestion_config.raw_data_path):
-                raise FileNotFoundError(f"Raw data file not found: {self.data_ingestion_config.raw_data_path}")
 
             # Ensure directories exist
             self.create_directories()
 
-            df = pd.read_csv(self.data_ingestion_config.raw_data_path)
+            # Load sample data from existing train.csv file
+            logging.info("Loading sample data")
+            df = self.load_sample_data()
+
+            # Save the data to feature store for reference
+            df.to_csv(self.data_ingestion_config.feature_store_file_path, index=False)
+            logging.info(f"Data saved to feature store at: {self.data_ingestion_config.feature_store_file_path}")
+
+            # Split the data into train and test sets
             self.split_data_as_train_test(df)
-            
+
             return DataIngestionArtifact(
                 trained_file_path=self.data_ingestion_config.training_file_path,
                 test_file_path=self.data_ingestion_config.testing_file_path

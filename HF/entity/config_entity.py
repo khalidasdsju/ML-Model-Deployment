@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from HF.constants import *
 from HF.exception import HFException
 
@@ -29,7 +29,7 @@ class DataIngestionConfig:
     train_test_split_ratio: float = DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO
     collection_name: str = DATA_INGESTION_COLLECTION_NAME
     ingested_data_dir: str = os.path.join(data_ingestion_dir, 'data_ingestion')  # Directory to store the ingested data
-    raw_data_path: str = "/Users/khalid/Desktop/ML-Model-Deployment/artifact/04_07_2025_13_51_36/data_ingestion/feature_store/Study_Data.csv"  # Path for raw data
+    # We'll use MongoDB instead of a raw data file
 
 @dataclass
 class DataValidationConfig:
@@ -44,3 +44,7 @@ class DataTransformationConfig:
     transformed_test_file_path: str = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR, TEST_FILE_NAME.replace("csv", "npy"))
     transformed_object_file_path: str = os.path.join(data_transformation_dir, DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR)
     # Paths for storing transformed data and transformation objects
+    drop_columns: list = field(default_factory=lambda: ["StudyID"])  # Columns to drop during transformation
+    num_features: list = field(default_factory=lambda: ["Age", "BMI", "HR", "RBS", "HbA1C", "Creatinine", "Na", "K", "Cl", "Hb", "TropI", "LVIDd", "FS", "LVIDs", "LVEF", "LAV", "ICT", "IRT", "EA", "DT", "MPI", "RR", "TC", "LDLc", "HDLc", "TG", "BNP"])
+    or_columns: list = field(default_factory=lambda: ["Sex", "NYHA", "HTN", "DM", "Smoker", "DL", "BA", "CXR", "RWMA", "MI", "Thrombolysis", "MR", "Chest_pain"])
+    oh_columns: list = field(default_factory=lambda: ["ECG", "ACS", "Wall"])

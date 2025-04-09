@@ -1,0 +1,18 @@
+[ 2025-04-09 12:37:55,490 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-09 12:37:56,203 ] root - INFO - Pipeline started
+[ 2025-04-09 12:37:56,203 ] root - INFO - Starting data validation
+[ 2025-04-09 12:37:56,203 ] root - INFO - Starting data ingestion
+[ 2025-04-09 12:37:56,203 ] root - INFO - Initiating data ingestion
+[ 2025-04-09 12:37:56,203 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_37_54/data_ingestion/feature_store
+[ 2025-04-09 12:37:56,204 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_37_54/data_ingestion/ingested
+[ 2025-04-09 12:37:56,204 ] root - INFO - Loading sample data
+[ 2025-04-09 12:37:56,204 ] root - INFO - Loading sample data from existing train.csv
+[ 2025-04-09 12:37:56,205 ] root - INFO - Shape of dataframe: (400, 45)
+[ 2025-04-09 12:37:56,209 ] root - INFO - Data saved to feature store at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_37_54/data_ingestion/feature_store/Study_Data.csv
+[ 2025-04-09 12:37:56,209 ] root - INFO - Splitting data into train and test sets
+[ 2025-04-09 12:37:56,213 ] root - INFO - Train and test data saved at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_37_54/data_ingestion/ingested/train.csv, /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_37_54/data_ingestion/ingested/test.csv
+[ 2025-04-09 12:37:56,213 ] root - INFO - Data ingestion completed
+[ 2025-04-09 12:37:56,215 ] root - INFO - Validation status of columns: True
+[ 2025-04-09 12:37:56,215 ] root - INFO - Validation status of columns: True
+[ 2025-04-09 12:37:56,220 ] root - DEBUG - Executing <class 'evidently.calculation_engine.python_engine.PythonEngine.get_metric_implementation.<locals>._Wrapper'>...
+[ 2025-04-09 12:37:56,312 ] root - DEBUG - Executing <class 'evidently.calculation_engine.python_engine.PythonEngine.get_metric_implementation.<locals>._Wrapper'>...

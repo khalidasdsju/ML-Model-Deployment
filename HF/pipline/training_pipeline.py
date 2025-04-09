@@ -34,8 +34,14 @@ class TrainPipeline:
         try:
             logging.info("Starting data validation")
 
-            # Initialize DataValidation
-            data_validation = DataValidation(self.data_validation_config)
+            # Get data ingestion artifact first
+            data_ingestion_artifact = self.start_data_ingestion()
+
+            # Initialize DataValidation with both required arguments
+            data_validation = DataValidation(
+                data_ingestion_artifact=data_ingestion_artifact,
+                data_validation_config=self.data_validation_config
+            )
             data_validation_artifact = data_validation.initiate_data_validation()
 
             logging.info("Data validation completed")
@@ -65,12 +71,9 @@ class TrainPipeline:
         try:
             # Start the pipeline
             logging.info("Pipeline started")
-            
-            # Start the data ingestion step
-            self.start_data_ingestion()
 
-            # Start the data validation step
-            self.start_data_validation()
+            # Start the data validation step (which will call data ingestion internally)
+            data_validation_artifact = self.start_data_validation()
 
             # Start the data transformation step
             self.start_data_transformation()

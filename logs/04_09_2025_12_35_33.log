@@ -1,0 +1,8 @@
+[ 2025-04-09 12:35:34,949 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-09 12:35:35,643 ] root - INFO - Pipeline started
+[ 2025-04-09 12:35:35,643 ] root - INFO - Starting data ingestion
+[ 2025-04-09 12:35:35,643 ] root - INFO - Initiating data ingestion
+[ 2025-04-09 12:35:35,643 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_35_33/data_ingestion/feature_store
+[ 2025-04-09 12:35:35,643 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_35_33/data_ingestion/ingested
+[ 2025-04-09 12:35:35,643 ] root - INFO - Exporting data from MongoDB
+[ 2025-04-09 12:35:35,643 ] root - INFO - Exporting data from MongoDB

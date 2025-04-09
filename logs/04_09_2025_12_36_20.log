@@ -1,0 +1,14 @@
+[ 2025-04-09 12:36:20,679 ] asyncio - DEBUG - Using selector: KqueueSelector
+[ 2025-04-09 12:36:21,283 ] root - INFO - Pipeline started
+[ 2025-04-09 12:36:21,283 ] root - INFO - Starting data ingestion
+[ 2025-04-09 12:36:21,283 ] root - INFO - Initiating data ingestion
+[ 2025-04-09 12:36:21,283 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_36_20/data_ingestion/feature_store
+[ 2025-04-09 12:36:21,283 ] root - INFO - Creating directory: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_36_20/data_ingestion/ingested
+[ 2025-04-09 12:36:21,283 ] root - INFO - Loading sample data
+[ 2025-04-09 12:36:21,283 ] root - INFO - Loading sample data from existing train.csv
+[ 2025-04-09 12:36:21,287 ] root - INFO - Shape of dataframe: (400, 45)
+[ 2025-04-09 12:36:21,293 ] root - INFO - Data saved to feature store at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_36_20/data_ingestion/feature_store/Study_Data.csv
+[ 2025-04-09 12:36:21,293 ] root - INFO - Splitting data into train and test sets
+[ 2025-04-09 12:36:21,298 ] root - INFO - Train and test data saved at: /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_36_20/data_ingestion/ingested/train.csv, /Users/khalid/Desktop/ML-Model-Deployment/artifact/HF_09_04_2025_12_36_20/data_ingestion/ingested/test.csv
+[ 2025-04-09 12:36:21,298 ] root - INFO - Data ingestion completed
+[ 2025-04-09 12:36:21,298 ] root - INFO - Starting data validation

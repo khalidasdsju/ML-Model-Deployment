@@ -26,7 +26,7 @@ class DataTransformation:
     def get_data_transformer_object(self):
         try:
             logging.info("Creating data transformer object")
-            
+
             num_pipeline = Pipeline([
                 ("imputer", SimpleImputer(strategy="median")),
                 ("scaler", StandardScaler())
@@ -53,8 +53,17 @@ class DataTransformation:
         try:
             logging.info("Starting data transformation")
 
+            # Create directories for transformed data
+            transformed_train_dir = os.path.dirname(self.data_transformation_config.transformed_train_file_path)
+            transformed_test_dir = os.path.dirname(self.data_transformation_config.transformed_test_file_path)
+            transformed_object_dir = os.path.dirname(self.data_transformation_config.transformed_object_file_path)
+
+            os.makedirs(transformed_train_dir, exist_ok=True)
+            os.makedirs(transformed_test_dir, exist_ok=True)
+            os.makedirs(transformed_object_dir, exist_ok=True)
+
             # Load the train and test datasets
-            train_df = pd.read_csv(self.data_ingestion_artifact.train_file_path)
+            train_df = pd.read_csv(self.data_ingestion_artifact.trained_file_path)
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
 
             # Strip spaces and standardize column names
@@ -69,15 +78,21 @@ class DataTransformation:
             train_df.rename(columns={"HF": "HF"}, inplace=True)
             test_df.rename(columns={"HF": "HF"}, inplace=True)
 
-            # Check if 'HF' exists in both DataFrames
-            if "HF" not in train_df.columns or "HF" not in test_df.columns:
-                raise ValueError(f"Target column 'HF' is missing! Available columns: {train_df.columns.tolist()}")
+            # Print available columns for debugging
+            logging.info(f"Available columns in train_df: {train_df.columns.tolist()}")
 
-            target_feature_train_df = train_df["HF"]
-            target_feature_test_df = test_df["HF"]
+            # Define target column name
+            target_column = "HF"
 
-            input_feature_train_df = train_df.drop(columns=["HF"], axis=1)
-            input_feature_test_df = test_df.drop(columns=["HF"], axis=1)
+            # Check if target column exists in both DataFrames
+            if target_column not in train_df.columns or target_column not in test_df.columns:
+                raise ValueError(f"Target column '{target_column}' is missing! Available columns: {train_df.columns.tolist()}")
+
+            target_feature_train_df = train_df[target_column]
+            target_feature_test_df = test_df[target_column]
+
+            input_feature_train_df = train_df.drop(columns=[target_column], axis=1)
+            input_feature_test_df = test_df.drop(columns=[target_column], axis=1)
 
             # Fit and transform the features using the preprocessor
             preprocessor = self.get_data_transformer_object()
