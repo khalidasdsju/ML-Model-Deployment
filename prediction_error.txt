@@ -1,1 +1,3 @@
-Error in prediction: Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/components/model_prediction.py] line number [176] error message [Error in model prediction: Error occurred python script name [/Users/khalid/Desktop/ML-Model-Deployment/HF/components/model_prediction.py] line number [115] error message [Error making predictions: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:HF: object]]
+Error in prediction: Invalid data type in input. DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter `enable_categorical` must be set to `True`. Invalid columns: HF: object
+
+Please ensure all input data is properly formatted with the correct data types. For categorical variables, make sure they are properly encoded.

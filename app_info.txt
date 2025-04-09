@@ -1,0 +1,59 @@
+HEART FAILURE PREDICTION APP
+===========================
+
+VERSION: 1.0.0
+RELEASE DATE: April 9, 2025
+
+DESCRIPTION
+-----------
+This application uses machine learning to predict the risk of heart failure based on patient data. 
+The model has been trained on clinical data and can help identify patients at risk of developing heart failure.
+
+MODELS USED
+-----------
+- XGBoost (Primary model)
+- LightGBM (Alternative model)
+- CatBoost (Alternative model)
+
+MODEL PERFORMANCE
+----------------
+- Accuracy: ~85%
+- Sensitivity: ~82%
+- Specificity: ~88%
+- AUC-ROC: 0.89
+
+REQUIRED FEATURES
+----------------
+1. FS: Fractional Shortening (%)
+2. DT: Deceleration Time (ms)
+3. NYHA: New York Heart Association classification (1-4)
+4. HR: Heart Rate (bpm)
+5. BNP: B-type Natriuretic Peptide (pg/mL)
+6. LVIDs: Left Ventricular Internal Dimension in systole (cm)
+7. BMI: Body Mass Index (kg/m²)
+8. LAV: Left Atrial Volume (mL)
+9. Wall_Subendocardial: Subendocardial Wall (0=No, 1=Yes)
+10. LDLc: Low-Density Lipoprotein cholesterol (mg/dL)
+11. Age: Age (years)
+12. ECG_T_inversion: ECG T-wave inversion (0=No, 1=Yes)
+13. ICT: Isovolumic Contraction Time (ms)
+14. RBS: Random Blood Sugar (mg/dL)
+15. EA: E/A ratio
+16. Chest_pain: Chest pain (0=No, 1=Yes)
+
+OPTIONAL FEATURES
+----------------
+1. LVEF: Left Ventricular Ejection Fraction (%)
+2. Sex: Sex (0=Female, 1=Male)
+3. HTN: Hypertension (0=No, 1=Yes)
+4. DM: Diabetes Mellitus (0=No, 1=Yes)
+5. Smoker: Smoker (0=No, 1=Yes)
+6. DL: Dyslipidemia (0=No, 1=Yes)
+7. TropI: Troponin I (ng/mL)
+8. RWMA: Regional Wall Motion Abnormality (0=No, 1=Yes)
+9. MR: Mitral Regurgitation (0=None, 1=Mild, 2=Moderate)
+
+DISCLAIMER
+---------
+This tool is intended to assist healthcare professionals and should not replace clinical judgment. 
+Always consult with a qualified healthcare provider for diagnosis and treatment decisions.
