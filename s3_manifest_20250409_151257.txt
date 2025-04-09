@@ -1,0 +1,50 @@
+# Heart Failure Model S3 Upload Manifest
+Generated: 2025-04-09 15:13:19
+Timestamp: 20250409_151257
+Bucket: hf-predication-model2025
+
+## Model Files
+- s3://hf-predication-model2025/models/20250409_151257/best_xgboost_model.pkl
+- s3://hf-predication-model2025/models/20250409_151257/xgboost_model.pkl
+- s3://hf-predication-model2025/config/20250409_151257/prediction_params.yaml
+- s3://hf-predication-model2025/data/20250409_151257/feature_importance_cv.csv
+- s3://hf-predication-model2025/data/20250409_151257/model_comparison.csv
+
+## Report Files
+- s3://hf-predication-model2025/reports/20250409_151257/analysis_summary.txt
+- s3://hf-predication-model2025/reports/20250409_151257/technical_analysis.txt
+- s3://hf-predication-model2025/reports/20250409_151257/clinical_interpretation.txt
+- s3://hf-predication-model2025/reports/20250409_151257/executive_summary.txt
+- s3://hf-predication-model2025/reports/20250409_151257/combined_report.txt
+
+## Visualization Files
+- s3://hf-predication-model2025/visualizations/20250409_151257/roc_curves.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_random_forest_history.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/feature_importance_summary.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/cv_results_violinplot.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/ensemble_roc_curves.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/top_models_comparison.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_lightgbm_param_importances.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/cv_results_lineplot.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_catboost_history.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/threshold_analysis.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_xgboost_param_importances.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/model_accuracy_comparison.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/distribution_comparison.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/ensemble_comparison.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_logistic_regression_history.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_logistic_regression_param_importances.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/feature_importance_bar.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_gradient_boosting_param_importances.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/ensemble_confusion_matrices.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/precision_recall_curves.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_catboost_param_importances.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/top_models_confusion_matrices.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_xgboost_history.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_random_forest_param_importances.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/feature_importance_cv.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_lightgbm_history.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/cv_results_boxplot.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/model_performance_heatmap.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/optuna_gradient_boosting_history.png
+- s3://hf-predication-model2025/visualizations/20250409_151257/feature_selection_comparison.png
