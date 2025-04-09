@@ -1,0 +1,368 @@
+[ 2025-04-09 15:28:01,502 ] botocore.hooks - DEBUG - Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+[ 2025-04-09 15:28:01,503 ] botocore.hooks - DEBUG - Changing event name from before-call.apigateway to before-call.api-gateway
+[ 2025-04-09 15:28:01,503 ] botocore.hooks - DEBUG - Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+[ 2025-04-09 15:28:01,504 ] botocore.hooks - DEBUG - Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+[ 2025-04-09 15:28:01,504 ] botocore.hooks - DEBUG - Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+[ 2025-04-09 15:28:01,504 ] botocore.hooks - DEBUG - Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+[ 2025-04-09 15:28:01,504 ] botocore.hooks - DEBUG - Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+[ 2025-04-09 15:28:01,505 ] botocore.hooks - DEBUG - Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+[ 2025-04-09 15:28:01,505 ] botocore.hooks - DEBUG - Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+[ 2025-04-09 15:28:01,505 ] botocore.hooks - DEBUG - Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+[ 2025-04-09 15:28:01,505 ] botocore.hooks - DEBUG - Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+[ 2025-04-09 15:28:01,507 ] botocore.loaders - DEBUG - Loading JSON file: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/botocore/data/endpoints.json
+[ 2025-04-09 15:28:01,513 ] botocore.loaders - DEBUG - Loading JSON file: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/botocore/data/sdk-default-configuration.json
+[ 2025-04-09 15:28:01,513 ] botocore.hooks - DEBUG - Event choose-service-name: calling handler <function handle_service_name_alias at 0x151090040>
+[ 2025-04-09 15:28:01,544 ] botocore.loaders - DEBUG - Loading JSON file: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/botocore/data/s3/2006-03-01/service-2.json.gz
+[ 2025-04-09 15:28:01,548 ] botocore.loaders - DEBUG - Loading JSON file: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/botocore/data/s3/2006-03-01/service-2.sdk-extras.json
+[ 2025-04-09 15:28:01,555 ] botocore.loaders - DEBUG - Loading JSON file: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/botocore/data/s3/2006-03-01/endpoint-rule-set-1.json.gz
+[ 2025-04-09 15:28:01,556 ] botocore.loaders - DEBUG - Loading JSON file: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/botocore/data/partitions.json
+[ 2025-04-09 15:28:01,557 ] botocore.hooks - DEBUG - Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x14db68af0>
+[ 2025-04-09 15:28:01,557 ] botocore.hooks - DEBUG - Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x15112e160>
+[ 2025-04-09 15:28:01,578 ] botocore.hooks - DEBUG - Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x14db688b0>
+[ 2025-04-09 15:28:01,578 ] botocore.configprovider - DEBUG - Looking for endpoint for s3 via: environment_service
+[ 2025-04-09 15:28:01,578 ] botocore.configprovider - DEBUG - Looking for endpoint for s3 via: environment_global
+[ 2025-04-09 15:28:01,578 ] botocore.configprovider - DEBUG - Looking for endpoint for s3 via: config_service
+[ 2025-04-09 15:28:01,578 ] botocore.configprovider - DEBUG - Looking for endpoint for s3 via: config_global
+[ 2025-04-09 15:28:01,578 ] botocore.configprovider - DEBUG - No configured endpoint found.
+[ 2025-04-09 15:28:01,621 ] botocore.endpoint - DEBUG - Setting s3 timeout as (60, 60)
+[ 2025-04-09 15:28:01,622 ] botocore.loaders - DEBUG - Loading JSON file: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/botocore/data/_retry.json
+[ 2025-04-09 15:28:01,622 ] botocore.client - DEBUG - Registering retry handlers for service: s3
+[ 2025-04-09 15:28:01,622 ] botocore.utils - DEBUG - Registering S3 region redirector handler
+[ 2025-04-09 15:28:01,622 ] botocore.utils - DEBUG - Registering S3Express Identity Resolver
+[ 2025-04-09 15:28:01,622 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadBucket: calling handler <function validate_bucket_name at 0x151097790>
+[ 2025-04-09 15:28:01,622 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadBucket: calling handler <function remove_bucket_from_url_paths_from_model at 0x15109d670>
+[ 2025-04-09 15:28:01,622 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadBucket: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:01,622 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadBucket: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:01,622 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadBucket: calling handler <function generate_idempotent_uuid at 0x1510975e0>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadBucket: calling handler <function _handle_request_validation_mode_member at 0x15109dd30>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x15109d820>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:01,623 ] botocore.regions - DEBUG - Calling endpoint provider with parameters: {'Bucket': 'hf-predication-model2025', 'Region': 'us-east-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': True, 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+[ 2025-04-09 15:28:01,623 ] botocore.regions - DEBUG - Endpoint provider result: https://hf-predication-model2025.s3.amazonaws.com
+[ 2025-04-09 15:28:01,623 ] botocore.regions - DEBUG - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+[ 2025-04-09 15:28:01,623 ] botocore.regions - DEBUG - Selected auth type "v4" as "v4" with signing context params: {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-call.s3.HeadBucket: calling handler <function add_expect_header at 0x151097af0>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-call.s3.HeadBucket: calling handler <bound method S3ExpressIdentityResolver.apply_signing_cache_key of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-call.s3.HeadBucket: calling handler <function add_recursion_detection_header at 0x1510971f0>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-call.s3.HeadBucket: calling handler <function add_query_compatibility_header at 0x15109dca0>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-call.s3.HeadBucket: calling handler <function inject_api_version_header_if_needed at 0x151099e50>
+[ 2025-04-09 15:28:01,623 ] botocore.endpoint - DEBUG - Making request for OperationModel(name=HeadBucket) with params: {'url_path': '', 'query_string': {}, 'method': 'HEAD', 'headers': {'User-Agent': 'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.37.28'}, 'body': b'', 'auth_path': '/hf-predication-model2025/', 'url': 'https://hf-predication-model2025.s3.amazonaws.com/', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x156cec2e0>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 's3_redirect': {'redirected': False, 'bucket': 'hf-predication-model2025', 'params': {'Bucket': 'hf-predication-model2025'}}, 'input_params': {'Bucket': 'hf-predication-model2025'}, 'signing': {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}, 'endpoint_properties': {'authSchemes': [{'disableDoubleEncoding': True, 'name': 'sigv4', 'signingName': 's3', 'signingRegion': 'us-east-1'}]}}}
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event request-created.s3.HeadBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x156cec070>>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event choose-signer.s3.HeadBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event choose-signer.s3.HeadBucket: calling handler <function set_operation_specific_signer at 0x151097430>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadBucket: calling handler <function remove_arn_from_signing_path at 0x15109d790>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadBucket: calling handler <function _set_extra_headers_for_unsigned_request at 0x15109ddc0>
+[ 2025-04-09 15:28:01,623 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:01,623 ] botocore.auth - DEBUG - Calculating signature using v4 auth.
+[ 2025-04-09 15:28:01,623 ] botocore.auth - DEBUG - CanonicalRequest:
+HEAD
+/
+
+host:hf-predication-model2025.s3.amazonaws.com
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20250409T092801Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[ 2025-04-09 15:28:01,623 ] botocore.auth - DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20250409T092801Z
+20250409/us-east-1/s3/aws4_request
+b89d9ab9558f2b73e3b5b80d1d3b9782cdc2e57eca072ba2fec43e4eb40222b8
+[ 2025-04-09 15:28:01,624 ] botocore.auth - DEBUG - Signature:
+183efa3ee79035407827f2c24db6c892cfc0f0c403a941437db2f57f8116c337
+[ 2025-04-09 15:28:01,624 ] botocore.hooks - DEBUG - Event request-created.s3.HeadBucket: calling handler <bound method UserAgentString.rebuild_and_replace_user_agent_handler of <botocore.useragent.UserAgentString object at 0x156dfa370>>
+[ 2025-04-09 15:28:01,624 ] botocore.hooks - DEBUG - Event request-created.s3.HeadBucket: calling handler <function add_retry_headers at 0x15109d5e0>
+[ 2025-04-09 15:28:01,624 ] botocore.endpoint - DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=HEAD, url=https://hf-predication-model2025.s3.amazonaws.com/, headers={'User-Agent': b'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.37.28', 'X-Amz-Date': b'20250409T092801Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIA2RP6H2HI34XE4TN5/20250409/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=183efa3ee79035407827f2c24db6c892cfc0f0c403a941437db2f57f8116c337', 'amz-sdk-invocation-id': b'5923c806-e07f-46b0-8e06-89334b9d5965', 'amz-sdk-request': b'attempt=1'}>
+[ 2025-04-09 15:28:01,624 ] botocore.httpsession - DEBUG - Certificate path: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/certifi/cacert.pem
+[ 2025-04-09 15:28:01,624 ] urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): hf-predication-model2025.s3.amazonaws.com:443
+[ 2025-04-09 15:28:03,087 ] urllib3.connectionpool - DEBUG - https://hf-predication-model2025.s3.amazonaws.com:443 "HEAD / HTTP/1.1" 200 0
+[ 2025-04-09 15:28:03,088 ] botocore.hooks - DEBUG - Event before-parse.s3.HeadBucket: calling handler <function _handle_200_error at 0x15109daf0>
+[ 2025-04-09 15:28:03,088 ] botocore.hooks - DEBUG - Event before-parse.s3.HeadBucket: calling handler <function handle_expires_header at 0x15109d940>
+[ 2025-04-09 15:28:03,088 ] botocore.parsers - DEBUG - Response headers: {'x-amz-id-2': 'y8ZK62l4ijTNhoaC6XbYdWyvsyUGQcHeoWWjukVBS1swOoP2QnmFh4WwsGaNbpjqtXSEkz2dhts=', 'x-amz-request-id': 'NHRGGXHG24VCG8M5', 'Date': 'Wed, 09 Apr 2025 09:28:03 GMT', 'x-amz-bucket-region': 'us-east-1', 'x-amz-access-point-alias': 'false', 'Content-Type': 'application/xml', 'Transfer-Encoding': 'chunked', 'Server': 'AmazonS3'}
+[ 2025-04-09 15:28:03,088 ] botocore.parsers - DEBUG - Response body:
+b''
+[ 2025-04-09 15:28:03,089 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadBucket: calling handler <function _update_status_code at 0x15109dc10>
+[ 2025-04-09 15:28:03,089 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadBucket: calling handler <botocore.retryhandler.RetryHandler object at 0x156dfa8b0>
+[ 2025-04-09 15:28:03,089 ] botocore.retryhandler - DEBUG - No retry needed.
+[ 2025-04-09 15:28:03,089 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:03,089 ] root - INFO - Bucket hf-predication-model2025 exists
+[ 2025-04-09 15:28:03,089 ] root - INFO - S3Utils initialized with bucket: hf-predication-model2025
+[ 2025-04-09 15:28:03,089 ] boto3.s3.transfer - DEBUG - Opting out of CRT Transfer Manager. Preferred client: auto, CRT available: False, Instance Optimized: False.
+[ 2025-04-09 15:28:03,089 ] boto3.s3.transfer - DEBUG - Using default client. pid: 10870, thread: 8629061696
+[ 2025-04-09 15:28:03,090 ] s3transfer.utils - DEBUG - Acquiring 0
+[ 2025-04-09 15:28:03,090 ] s3transfer.tasks - DEBUG - DownloadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e53100>}) about to wait for the following futures []
+[ 2025-04-09 15:28:03,090 ] s3transfer.tasks - DEBUG - DownloadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e53100>}) done waiting for dependent futures
+[ 2025-04-09 15:28:03,091 ] s3transfer.tasks - DEBUG - Executing task DownloadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e53100>}) with kwargs {'client': <botocore.client.S3 object at 0x156ce8ee0>, 'config': <boto3.s3.transfer.TransferConfig object at 0x156dfaa90>, 'osutil': <s3transfer.utils.OSUtils object at 0x156dfac40>, 'request_executor': <s3transfer.futures.BoundedExecutor object at 0x156dfaee0>, 'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e53100>, 'io_executor': <s3transfer.futures.BoundedExecutor object at 0x156e2e9a0>}
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function sse_md5 at 0x151097820>
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function validate_bucket_name at 0x151097790>
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x15109d670>
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function generate_idempotent_uuid at 0x1510975e0>
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function _handle_request_validation_mode_member at 0x15109dd30>
+[ 2025-04-09 15:28:03,091 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x15109d820>
+[ 2025-04-09 15:28:03,092 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:03,092 ] botocore.regions - DEBUG - Calling endpoint provider with parameters: {'Bucket': 'hf-predication-model2025', 'Region': 'us-east-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': True, 'Key': 'models/20250409_151257/best_xgboost_model.pkl', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+[ 2025-04-09 15:28:03,092 ] botocore.regions - DEBUG - Endpoint provider result: https://hf-predication-model2025.s3.amazonaws.com
+[ 2025-04-09 15:28:03,092 ] botocore.regions - DEBUG - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+[ 2025-04-09 15:28:03,092 ] botocore.regions - DEBUG - Selected auth type "v4" as "v4" with signing context params: {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function add_expect_header at 0x151097af0>
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <bound method S3ExpressIdentityResolver.apply_signing_cache_key of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function add_recursion_detection_header at 0x1510971f0>
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function add_query_compatibility_header at 0x15109dca0>
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function inject_api_version_header_if_needed at 0x151099e50>
+[ 2025-04-09 15:28:03,093 ] botocore.endpoint - DEBUG - Making request for OperationModel(name=HeadObject) with params: {'url_path': '/models/20250409_151257/best_xgboost_model.pkl', 'query_string': {}, 'method': 'HEAD', 'headers': {'User-Agent': 'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28'}, 'body': b'', 'auth_path': '/hf-predication-model2025/models/20250409_151257/best_xgboost_model.pkl', 'url': 'https://hf-predication-model2025.s3.amazonaws.com/models/20250409_151257/best_xgboost_model.pkl', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x156cec2e0>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 's3_redirect': {'redirected': False, 'bucket': 'hf-predication-model2025', 'params': {'Bucket': 'hf-predication-model2025', 'Key': 'models/20250409_151257/best_xgboost_model.pkl'}}, 'input_params': {'Bucket': 'hf-predication-model2025', 'Key': 'models/20250409_151257/best_xgboost_model.pkl'}, 'signing': {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}, 'endpoint_properties': {'authSchemes': [{'disableDoubleEncoding': True, 'name': 'sigv4', 'signingName': 's3', 'signingRegion': 'us-east-1'}]}}}
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <function signal_not_transferring at 0x156d54550>
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x156cec070>>
+[ 2025-04-09 15:28:03,093 ] botocore.hooks - DEBUG - Event choose-signer.s3.HeadObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:03,094 ] botocore.hooks - DEBUG - Event choose-signer.s3.HeadObject: calling handler <function set_operation_specific_signer at 0x151097430>
+[ 2025-04-09 15:28:03,094 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadObject: calling handler <function remove_arn_from_signing_path at 0x15109d790>
+[ 2025-04-09 15:28:03,094 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x15109ddc0>
+[ 2025-04-09 15:28:03,094 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:03,094 ] botocore.auth - DEBUG - Calculating signature using v4 auth.
+[ 2025-04-09 15:28:03,094 ] botocore.auth - DEBUG - CanonicalRequest:
+HEAD
+/models/20250409_151257/best_xgboost_model.pkl
+
+host:hf-predication-model2025.s3.amazonaws.com
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20250409T092803Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[ 2025-04-09 15:28:03,094 ] botocore.auth - DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20250409T092803Z
+20250409/us-east-1/s3/aws4_request
+9d14bda32e22f0e4342f1337a3498e022c073c862ff12d94cc569083405a5595
+[ 2025-04-09 15:28:03,094 ] botocore.auth - DEBUG - Signature:
+ed5c4516250f87070e9309408cfff1dc3c3bc6dab3585530545537764a1f3411
+[ 2025-04-09 15:28:03,094 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <bound method UserAgentString.rebuild_and_replace_user_agent_handler of <botocore.useragent.UserAgentString object at 0x156dfa370>>
+[ 2025-04-09 15:28:03,094 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <function signal_transferring at 0x156d545e0>
+[ 2025-04-09 15:28:03,094 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <function add_retry_headers at 0x15109d5e0>
+[ 2025-04-09 15:28:03,094 ] botocore.endpoint - DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=HEAD, url=https://hf-predication-model2025.s3.amazonaws.com/models/20250409_151257/best_xgboost_model.pkl, headers={'User-Agent': b'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28', 'X-Amz-Date': b'20250409T092803Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIA2RP6H2HI34XE4TN5/20250409/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=ed5c4516250f87070e9309408cfff1dc3c3bc6dab3585530545537764a1f3411', 'amz-sdk-invocation-id': b'b43b7c86-c9aa-43c7-a697-e3db98116547', 'amz-sdk-request': b'attempt=1'}>
+[ 2025-04-09 15:28:03,095 ] botocore.httpsession - DEBUG - Certificate path: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/certifi/cacert.pem
+[ 2025-04-09 15:28:03,406 ] urllib3.connectionpool - DEBUG - https://hf-predication-model2025.s3.amazonaws.com:443 "HEAD /models/20250409_151257/best_xgboost_model.pkl HTTP/1.1" 200 0
+[ 2025-04-09 15:28:03,407 ] botocore.hooks - DEBUG - Event before-parse.s3.HeadObject: calling handler <function _handle_200_error at 0x15109daf0>
+[ 2025-04-09 15:28:03,407 ] botocore.hooks - DEBUG - Event before-parse.s3.HeadObject: calling handler <function handle_expires_header at 0x15109d940>
+[ 2025-04-09 15:28:03,407 ] botocore.parsers - DEBUG - Response headers: {'x-amz-id-2': 'FfV9E2OH8of4+BNuhtYd+AbVNMKsoG6loK2UbssJqQWpc2YEY3vIFfT6z/BfUpRkkR+0vgZOMyE=', 'x-amz-request-id': 'YBS11A2MM7QSQY64', 'Date': 'Wed, 09 Apr 2025 09:28:04 GMT', 'Last-Modified': 'Wed, 09 Apr 2025 09:12:58 GMT', 'ETag': '"eb69ce20c31adebde4d24c417ef485c1"', 'x-amz-server-side-encryption': 'AES256', 'x-amz-version-id': 'cTw8znHmxnW0CAXpSxfFz57d4.SIR9Go', 'Accept-Ranges': 'bytes', 'Content-Type': 'binary/octet-stream', 'Content-Length': '247611', 'Server': 'AmazonS3'}
+[ 2025-04-09 15:28:03,407 ] botocore.parsers - DEBUG - Response body:
+b''
+[ 2025-04-09 15:28:03,409 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadObject: calling handler <function _update_status_code at 0x15109dc10>
+[ 2025-04-09 15:28:03,409 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadObject: calling handler <botocore.retryhandler.RetryHandler object at 0x156dfa8b0>
+[ 2025-04-09 15:28:03,409 ] botocore.retryhandler - DEBUG - No retry needed.
+[ 2025-04-09 15:28:03,409 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadObject: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:03,409 ] s3transfer.futures - DEBUG - Submitting task ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'models/20250409_151257/best_xgboost_model.pkl', 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x156dfaee0> for transfer request: 0.
+[ 2025-04-09 15:28:03,409 ] s3transfer.utils - DEBUG - Acquiring 0
+[ 2025-04-09 15:28:03,410 ] s3transfer.tasks - DEBUG - ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'models/20250409_151257/best_xgboost_model.pkl', 'extra_args': {}}) about to wait for the following futures []
+[ 2025-04-09 15:28:03,410 ] s3transfer.utils - DEBUG - Releasing acquire 0/None
+[ 2025-04-09 15:28:03,410 ] s3transfer.tasks - DEBUG - ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'models/20250409_151257/best_xgboost_model.pkl', 'extra_args': {}}) done waiting for dependent futures
+[ 2025-04-09 15:28:03,410 ] s3transfer.tasks - DEBUG - Executing task ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'models/20250409_151257/best_xgboost_model.pkl', 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x156ce8ee0>, 'bucket': 'hf-predication-model2025', 'key': 'models/20250409_151257/best_xgboost_model.pkl', 'fileobj': <s3transfer.utils.DeferredOpenFile object at 0x156e536a0>, 'extra_args': {}, 'callbacks': [], 'max_attempts': 5, 'download_output_manager': <s3transfer.download.DownloadFilenameOutputManager object at 0x156e53520>, 'io_chunksize': 262144, 'bandwidth_limiter': None}
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x151097820>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x151097790>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x15109d670>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x1510975e0>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x15109dd30>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x15109d820>
+[ 2025-04-09 15:28:03,411 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:03,411 ] botocore.regions - DEBUG - Calling endpoint provider with parameters: {'Bucket': 'hf-predication-model2025', 'Region': 'us-east-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': True, 'Key': 'models/20250409_151257/best_xgboost_model.pkl', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+[ 2025-04-09 15:28:03,412 ] botocore.regions - DEBUG - Endpoint provider result: https://hf-predication-model2025.s3.amazonaws.com
+[ 2025-04-09 15:28:03,412 ] botocore.regions - DEBUG - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+[ 2025-04-09 15:28:03,412 ] botocore.regions - DEBUG - Selected auth type "v4" as "v4" with signing context params: {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+[ 2025-04-09 15:28:03,412 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function add_expect_header at 0x151097af0>
+[ 2025-04-09 15:28:03,412 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.apply_signing_cache_key of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:03,412 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function add_recursion_detection_header at 0x1510971f0>
+[ 2025-04-09 15:28:03,412 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function add_query_compatibility_header at 0x15109dca0>
+[ 2025-04-09 15:28:03,412 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function inject_api_version_header_if_needed at 0x151099e50>
+[ 2025-04-09 15:28:03,412 ] botocore.endpoint - DEBUG - Making request for OperationModel(name=GetObject) with params: {'url_path': '/models/20250409_151257/best_xgboost_model.pkl', 'query_string': {}, 'method': 'GET', 'headers': {'x-amz-checksum-mode': 'ENABLED', 'User-Agent': 'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28'}, 'body': b'', 'auth_path': '/hf-predication-model2025/models/20250409_151257/best_xgboost_model.pkl', 'url': 'https://hf-predication-model2025.s3.amazonaws.com/models/20250409_151257/best_xgboost_model.pkl', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x156cec2e0>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 's3_redirect': {'redirected': False, 'bucket': 'hf-predication-model2025', 'params': {'Bucket': 'hf-predication-model2025', 'Key': 'models/20250409_151257/best_xgboost_model.pkl', 'ChecksumMode': 'ENABLED'}}, 'input_params': {'Bucket': 'hf-predication-model2025', 'Key': 'models/20250409_151257/best_xgboost_model.pkl'}, 'signing': {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}, 'endpoint_properties': {'authSchemes': [{'disableDoubleEncoding': True, 'name': 'sigv4', 'signingName': 's3', 'signingRegion': 'us-east-1'}]}, 'checksum': {'response_algorithms': ['crc32', 'sha1', 'sha256']}}}
+[ 2025-04-09 15:28:03,413 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <function signal_not_transferring at 0x156d54550>
+[ 2025-04-09 15:28:03,413 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x156cec070>>
+[ 2025-04-09 15:28:03,413 ] botocore.hooks - DEBUG - Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:03,413 ] botocore.hooks - DEBUG - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x151097430>
+[ 2025-04-09 15:28:03,413 ] botocore.hooks - DEBUG - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x15109d790>
+[ 2025-04-09 15:28:03,413 ] botocore.hooks - DEBUG - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x15109ddc0>
+[ 2025-04-09 15:28:03,413 ] botocore.hooks - DEBUG - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:03,414 ] botocore.auth - DEBUG - Calculating signature using v4 auth.
+[ 2025-04-09 15:28:03,414 ] botocore.auth - DEBUG - CanonicalRequest:
+GET
+/models/20250409_151257/best_xgboost_model.pkl
+
+host:hf-predication-model2025.s3.amazonaws.com
+x-amz-checksum-mode:ENABLED
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20250409T092803Z
+
+host;x-amz-checksum-mode;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[ 2025-04-09 15:28:03,414 ] botocore.auth - DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20250409T092803Z
+20250409/us-east-1/s3/aws4_request
+cd8f264a3f48eee83428dcad7580486573ba36c3e69132f9b28ba72c57f0357c
+[ 2025-04-09 15:28:03,414 ] botocore.auth - DEBUG - Signature:
+a968fe29b2ad8baa1c57cb2c17b926671236983cd2842418f731106bb4e78318
+[ 2025-04-09 15:28:03,414 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <bound method UserAgentString.rebuild_and_replace_user_agent_handler of <botocore.useragent.UserAgentString object at 0x156dfa370>>
+[ 2025-04-09 15:28:03,414 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <function signal_transferring at 0x156d545e0>
+[ 2025-04-09 15:28:03,414 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <function add_retry_headers at 0x15109d5e0>
+[ 2025-04-09 15:28:03,414 ] botocore.endpoint - DEBUG - Sending http request: <AWSPreparedRequest stream_output=True, method=GET, url=https://hf-predication-model2025.s3.amazonaws.com/models/20250409_151257/best_xgboost_model.pkl, headers={'x-amz-checksum-mode': b'ENABLED', 'User-Agent': b'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28', 'X-Amz-Date': b'20250409T092803Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIA2RP6H2HI34XE4TN5/20250409/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-checksum-mode;x-amz-content-sha256;x-amz-date, Signature=a968fe29b2ad8baa1c57cb2c17b926671236983cd2842418f731106bb4e78318', 'amz-sdk-invocation-id': b'472f3acb-9416-4f40-a4be-555cb7db9416', 'amz-sdk-request': b'attempt=1'}>
+[ 2025-04-09 15:28:03,415 ] botocore.httpsession - DEBUG - Certificate path: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/certifi/cacert.pem
+[ 2025-04-09 15:28:03,841 ] urllib3.connectionpool - DEBUG - https://hf-predication-model2025.s3.amazonaws.com:443 "GET /models/20250409_151257/best_xgboost_model.pkl HTTP/1.1" 200 247611
+[ 2025-04-09 15:28:03,842 ] botocore.hooks - DEBUG - Event before-parse.s3.GetObject: calling handler <function _handle_200_error at 0x15109daf0>
+[ 2025-04-09 15:28:03,842 ] botocore.hooks - DEBUG - Event before-parse.s3.GetObject: calling handler <function handle_expires_header at 0x15109d940>
+[ 2025-04-09 15:28:03,842 ] botocore.parsers - DEBUG - Response headers: {'x-amz-id-2': '4Tn74Aqwq4rG7zWI1neo3wIg01OjaFk53RZuowQZmqFdPkGSAANO4M5WYrXwdJi58J1Pasektmk=', 'x-amz-request-id': 'YBS4QE91865PDVAS', 'Date': 'Wed, 09 Apr 2025 09:28:04 GMT', 'Last-Modified': 'Wed, 09 Apr 2025 09:12:58 GMT', 'ETag': '"eb69ce20c31adebde4d24c417ef485c1"', 'x-amz-checksum-crc32': 'cTDIfw==', 'x-amz-checksum-type': 'FULL_OBJECT', 'x-amz-server-side-encryption': 'AES256', 'x-amz-version-id': 'cTw8znHmxnW0CAXpSxfFz57d4.SIR9Go', 'Accept-Ranges': 'bytes', 'Content-Type': 'binary/octet-stream', 'Content-Length': '247611', 'Server': 'AmazonS3'}
+[ 2025-04-09 15:28:03,843 ] botocore.parsers - DEBUG - Response body:
+<botocore.httpchecksum.StreamingChecksumBody object at 0x156e90130>
+[ 2025-04-09 15:28:03,844 ] botocore.hooks - DEBUG - Event needs-retry.s3.GetObject: calling handler <function _update_status_code at 0x15109dc10>
+[ 2025-04-09 15:28:03,844 ] botocore.hooks - DEBUG - Event needs-retry.s3.GetObject: calling handler <botocore.retryhandler.RetryHandler object at 0x156dfa8b0>
+[ 2025-04-09 15:28:03,844 ] botocore.retryhandler - DEBUG - No retry needed.
+[ 2025-04-09 15:28:03,844 ] botocore.hooks - DEBUG - Event needs-retry.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:04,765 ] s3transfer.tasks - DEBUG - IOWriteTask(transfer_id=0, {'offset': 0}) about to wait for the following futures []
+[ 2025-04-09 15:28:04,765 ] s3transfer.tasks - DEBUG - IOWriteTask(transfer_id=0, {'offset': 0}) done waiting for dependent futures
+[ 2025-04-09 15:28:04,765 ] s3transfer.tasks - DEBUG - Executing task IOWriteTask(transfer_id=0, {'offset': 0}) with kwargs {'fileobj': <s3transfer.utils.DeferredOpenFile object at 0x156e536a0>, 'offset': 0}
+[ 2025-04-09 15:28:04,766 ] s3transfer.tasks - DEBUG - IORenameFileTask(transfer_id=0, {'final_filename': 'temp_model_20250409_151257/model.pkl'}) about to wait for the following futures []
+[ 2025-04-09 15:28:04,766 ] s3transfer.tasks - DEBUG - IORenameFileTask(transfer_id=0, {'final_filename': 'temp_model_20250409_151257/model.pkl'}) done waiting for dependent futures
+[ 2025-04-09 15:28:04,766 ] s3transfer.tasks - DEBUG - Executing task IORenameFileTask(transfer_id=0, {'final_filename': 'temp_model_20250409_151257/model.pkl'}) with kwargs {'fileobj': <s3transfer.utils.DeferredOpenFile object at 0x156e536a0>, 'final_filename': 'temp_model_20250409_151257/model.pkl', 'osutil': <s3transfer.utils.OSUtils object at 0x156dfac40>}
+[ 2025-04-09 15:28:04,767 ] s3transfer.utils - DEBUG - Releasing acquire 0/None
+[ 2025-04-09 15:28:04,767 ] root - INFO - File models/20250409_151257/best_xgboost_model.pkl downloaded to temp_model_20250409_151257/model.pkl
+[ 2025-04-09 15:28:04,768 ] boto3.s3.transfer - DEBUG - Opting out of CRT Transfer Manager. Preferred client: auto, CRT available: False, Instance Optimized: False.
+[ 2025-04-09 15:28:04,768 ] boto3.s3.transfer - DEBUG - Using default client. pid: 10870, thread: 8629061696
+[ 2025-04-09 15:28:04,768 ] s3transfer.utils - DEBUG - Acquiring 0
+[ 2025-04-09 15:28:04,768 ] s3transfer.tasks - DEBUG - DownloadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e2eb20>}) about to wait for the following futures []
+[ 2025-04-09 15:28:04,768 ] s3transfer.tasks - DEBUG - DownloadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e2eb20>}) done waiting for dependent futures
+[ 2025-04-09 15:28:04,768 ] s3transfer.tasks - DEBUG - Executing task DownloadSubmissionTask(transfer_id=0, {'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e2eb20>}) with kwargs {'client': <botocore.client.S3 object at 0x156ce8ee0>, 'config': <boto3.s3.transfer.TransferConfig object at 0x156dfac10>, 'osutil': <s3transfer.utils.OSUtils object at 0x156dfad90>, 'request_executor': <s3transfer.futures.BoundedExecutor object at 0x156dfaa90>, 'transfer_future': <s3transfer.futures.TransferFuture object at 0x156e2eb20>, 'io_executor': <s3transfer.futures.BoundedExecutor object at 0x156e6a9d0>}
+[ 2025-04-09 15:28:04,768 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function sse_md5 at 0x151097820>
+[ 2025-04-09 15:28:04,768 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function validate_bucket_name at 0x151097790>
+[ 2025-04-09 15:28:04,768 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x15109d670>
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function generate_idempotent_uuid at 0x1510975e0>
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.HeadObject: calling handler <function _handle_request_validation_mode_member at 0x15109dd30>
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x15109d820>
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:04,769 ] botocore.regions - DEBUG - Calling endpoint provider with parameters: {'Bucket': 'hf-predication-model2025', 'Region': 'us-east-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': True, 'Key': 'config/20250409_151257/prediction_params.yaml', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+[ 2025-04-09 15:28:04,769 ] botocore.regions - DEBUG - Endpoint provider result: https://hf-predication-model2025.s3.amazonaws.com
+[ 2025-04-09 15:28:04,769 ] botocore.regions - DEBUG - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+[ 2025-04-09 15:28:04,769 ] botocore.regions - DEBUG - Selected auth type "v4" as "v4" with signing context params: {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function add_expect_header at 0x151097af0>
+[ 2025-04-09 15:28:04,769 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <bound method S3ExpressIdentityResolver.apply_signing_cache_key of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function add_recursion_detection_header at 0x1510971f0>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function add_query_compatibility_header at 0x15109dca0>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event before-call.s3.HeadObject: calling handler <function inject_api_version_header_if_needed at 0x151099e50>
+[ 2025-04-09 15:28:04,770 ] botocore.endpoint - DEBUG - Making request for OperationModel(name=HeadObject) with params: {'url_path': '/config/20250409_151257/prediction_params.yaml', 'query_string': {}, 'method': 'HEAD', 'headers': {'User-Agent': 'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28'}, 'body': b'', 'auth_path': '/hf-predication-model2025/config/20250409_151257/prediction_params.yaml', 'url': 'https://hf-predication-model2025.s3.amazonaws.com/config/20250409_151257/prediction_params.yaml', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x156cec2e0>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 's3_redirect': {'redirected': False, 'bucket': 'hf-predication-model2025', 'params': {'Bucket': 'hf-predication-model2025', 'Key': 'config/20250409_151257/prediction_params.yaml'}}, 'input_params': {'Bucket': 'hf-predication-model2025', 'Key': 'config/20250409_151257/prediction_params.yaml'}, 'signing': {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}, 'endpoint_properties': {'authSchemes': [{'disableDoubleEncoding': True, 'name': 'sigv4', 'signingName': 's3', 'signingRegion': 'us-east-1'}]}}}
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <function signal_not_transferring at 0x156d54550>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x156cec070>>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event choose-signer.s3.HeadObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event choose-signer.s3.HeadObject: calling handler <function set_operation_specific_signer at 0x151097430>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadObject: calling handler <function remove_arn_from_signing_path at 0x15109d790>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x15109ddc0>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event before-sign.s3.HeadObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:04,770 ] botocore.auth - DEBUG - Calculating signature using v4 auth.
+[ 2025-04-09 15:28:04,770 ] botocore.auth - DEBUG - CanonicalRequest:
+HEAD
+/config/20250409_151257/prediction_params.yaml
+
+host:hf-predication-model2025.s3.amazonaws.com
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20250409T092804Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[ 2025-04-09 15:28:04,770 ] botocore.auth - DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20250409T092804Z
+20250409/us-east-1/s3/aws4_request
+3790099b12b012c955c731c1a6eafb7b23b35f75d9928cea45977412c8bdab65
+[ 2025-04-09 15:28:04,770 ] botocore.auth - DEBUG - Signature:
+5f688b5f39a9c155192b14263bbbdf92e6be499b68f1cfc92e82e39f265f6842
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <bound method UserAgentString.rebuild_and_replace_user_agent_handler of <botocore.useragent.UserAgentString object at 0x156dfa370>>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <function signal_transferring at 0x156d545e0>
+[ 2025-04-09 15:28:04,770 ] botocore.hooks - DEBUG - Event request-created.s3.HeadObject: calling handler <function add_retry_headers at 0x15109d5e0>
+[ 2025-04-09 15:28:04,770 ] botocore.endpoint - DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=HEAD, url=https://hf-predication-model2025.s3.amazonaws.com/config/20250409_151257/prediction_params.yaml, headers={'User-Agent': b'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28', 'X-Amz-Date': b'20250409T092804Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIA2RP6H2HI34XE4TN5/20250409/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=5f688b5f39a9c155192b14263bbbdf92e6be499b68f1cfc92e82e39f265f6842', 'amz-sdk-invocation-id': b'9dd1109b-9ad9-4b8d-a2f6-9990cfb84ef0', 'amz-sdk-request': b'attempt=1'}>
+[ 2025-04-09 15:28:04,771 ] botocore.httpsession - DEBUG - Certificate path: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/certifi/cacert.pem
+[ 2025-04-09 15:28:05,081 ] urllib3.connectionpool - DEBUG - https://hf-predication-model2025.s3.amazonaws.com:443 "HEAD /config/20250409_151257/prediction_params.yaml HTTP/1.1" 200 0
+[ 2025-04-09 15:28:05,082 ] botocore.hooks - DEBUG - Event before-parse.s3.HeadObject: calling handler <function _handle_200_error at 0x15109daf0>
+[ 2025-04-09 15:28:05,082 ] botocore.hooks - DEBUG - Event before-parse.s3.HeadObject: calling handler <function handle_expires_header at 0x15109d940>
+[ 2025-04-09 15:28:05,082 ] botocore.parsers - DEBUG - Response headers: {'x-amz-id-2': 'TjnYd3Zaywe/v1gsJooIvRPkJo7ZcTxnmYWHpyONb6iUgPmGIBVwM1nNM79TL7P6CQphrwYXioE=', 'x-amz-request-id': '7664J6TZ10QJNJ7P', 'Date': 'Wed, 09 Apr 2025 09:28:06 GMT', 'Last-Modified': 'Wed, 09 Apr 2025 09:13:05 GMT', 'ETag': '"aca0498683478f66e3ac510300ba1e07"', 'x-amz-server-side-encryption': 'AES256', 'x-amz-version-id': 'RJ_aHTkQQFmmHk2iewMZqpwYpa2Eppw6', 'Accept-Ranges': 'bytes', 'Content-Type': 'binary/octet-stream', 'Content-Length': '960', 'Server': 'AmazonS3'}
+[ 2025-04-09 15:28:05,082 ] botocore.parsers - DEBUG - Response body:
+b''
+[ 2025-04-09 15:28:05,082 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadObject: calling handler <function _update_status_code at 0x15109dc10>
+[ 2025-04-09 15:28:05,082 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadObject: calling handler <botocore.retryhandler.RetryHandler object at 0x156dfa8b0>
+[ 2025-04-09 15:28:05,082 ] botocore.retryhandler - DEBUG - No retry needed.
+[ 2025-04-09 15:28:05,082 ] botocore.hooks - DEBUG - Event needs-retry.s3.HeadObject: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:05,082 ] s3transfer.futures - DEBUG - Submitting task ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'config/20250409_151257/prediction_params.yaml', 'extra_args': {}}) to executor <s3transfer.futures.BoundedExecutor object at 0x156dfaa90> for transfer request: 0.
+[ 2025-04-09 15:28:05,082 ] s3transfer.utils - DEBUG - Acquiring 0
+[ 2025-04-09 15:28:05,082 ] s3transfer.tasks - DEBUG - ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'config/20250409_151257/prediction_params.yaml', 'extra_args': {}}) about to wait for the following futures []
+[ 2025-04-09 15:28:05,082 ] s3transfer.utils - DEBUG - Releasing acquire 0/None
+[ 2025-04-09 15:28:05,083 ] s3transfer.tasks - DEBUG - ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'config/20250409_151257/prediction_params.yaml', 'extra_args': {}}) done waiting for dependent futures
+[ 2025-04-09 15:28:05,083 ] s3transfer.tasks - DEBUG - Executing task ImmediatelyWriteIOGetObjectTask(transfer_id=0, {'bucket': 'hf-predication-model2025', 'key': 'config/20250409_151257/prediction_params.yaml', 'extra_args': {}}) with kwargs {'client': <botocore.client.S3 object at 0x156ce8ee0>, 'bucket': 'hf-predication-model2025', 'key': 'config/20250409_151257/prediction_params.yaml', 'fileobj': <s3transfer.utils.DeferredOpenFile object at 0x156e2edf0>, 'extra_args': {}, 'callbacks': [], 'max_attempts': 5, 'download_output_manager': <s3transfer.download.DownloadFilenameOutputManager object at 0x156e2e580>, 'io_chunksize': 262144, 'bandwidth_limiter': None}
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x151097820>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x151097790>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function remove_bucket_from_url_paths_from_model at 0x15109d670>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x1510975e0>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-parameter-build.s3.GetObject: calling handler <function _handle_request_validation_mode_member at 0x15109dd30>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0x15109d820>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:05,083 ] botocore.regions - DEBUG - Calling endpoint provider with parameters: {'Bucket': 'hf-predication-model2025', 'Region': 'us-east-1', 'UseFIPS': False, 'UseDualStack': False, 'ForcePathStyle': False, 'Accelerate': False, 'UseGlobalEndpoint': True, 'Key': 'config/20250409_151257/prediction_params.yaml', 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True}
+[ 2025-04-09 15:28:05,083 ] botocore.regions - DEBUG - Endpoint provider result: https://hf-predication-model2025.s3.amazonaws.com
+[ 2025-04-09 15:28:05,083 ] botocore.regions - DEBUG - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+[ 2025-04-09 15:28:05,083 ] botocore.regions - DEBUG - Selected auth type "v4" as "v4" with signing context params: {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function add_expect_header at 0x151097af0>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.apply_signing_cache_key of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function add_recursion_detection_header at 0x1510971f0>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function add_query_compatibility_header at 0x15109dca0>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-call.s3.GetObject: calling handler <function inject_api_version_header_if_needed at 0x151099e50>
+[ 2025-04-09 15:28:05,083 ] botocore.endpoint - DEBUG - Making request for OperationModel(name=GetObject) with params: {'url_path': '/config/20250409_151257/prediction_params.yaml', 'query_string': {}, 'method': 'GET', 'headers': {'x-amz-checksum-mode': 'ENABLED', 'User-Agent': 'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28'}, 'body': b'', 'auth_path': '/hf-predication-model2025/config/20250409_151257/prediction_params.yaml', 'url': 'https://hf-predication-model2025.s3.amazonaws.com/config/20250409_151257/prediction_params.yaml', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x156cec2e0>, 'has_streaming_input': False, 'auth_type': 'v4', 'unsigned_payload': None, 's3_redirect': {'redirected': False, 'bucket': 'hf-predication-model2025', 'params': {'Bucket': 'hf-predication-model2025', 'Key': 'config/20250409_151257/prediction_params.yaml', 'ChecksumMode': 'ENABLED'}}, 'input_params': {'Bucket': 'hf-predication-model2025', 'Key': 'config/20250409_151257/prediction_params.yaml'}, 'signing': {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}, 'endpoint_properties': {'authSchemes': [{'disableDoubleEncoding': True, 'name': 'sigv4', 'signingName': 's3', 'signingRegion': 'us-east-1'}]}, 'checksum': {'response_algorithms': ['crc32', 'sha1', 'sha256']}}}
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <function signal_not_transferring at 0x156d54550>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x156cec070>>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x151162be0>>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event choose-signer.s3.GetObject: calling handler <function set_operation_specific_signer at 0x151097430>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-sign.s3.GetObject: calling handler <function remove_arn_from_signing_path at 0x15109d790>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-sign.s3.GetObject: calling handler <function _set_extra_headers_for_unsigned_request at 0x15109ddc0>
+[ 2025-04-09 15:28:05,083 ] botocore.hooks - DEBUG - Event before-sign.s3.GetObject: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0x156dfa970>>
+[ 2025-04-09 15:28:05,083 ] botocore.auth - DEBUG - Calculating signature using v4 auth.
+[ 2025-04-09 15:28:05,083 ] botocore.auth - DEBUG - CanonicalRequest:
+GET
+/config/20250409_151257/prediction_params.yaml
+
+host:hf-predication-model2025.s3.amazonaws.com
+x-amz-checksum-mode:ENABLED
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20250409T092805Z
+
+host;x-amz-checksum-mode;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[ 2025-04-09 15:28:05,083 ] botocore.auth - DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20250409T092805Z
+20250409/us-east-1/s3/aws4_request
+e09c32c1f2b6c6b1315216675ffcdef0e046e210dfdb8f5159a9134cac953a65
+[ 2025-04-09 15:28:05,084 ] botocore.auth - DEBUG - Signature:
+466b074d0ea6b75b9f5183c66bdd224268f5eb08d1803db5d5b3007c459d78a2
+[ 2025-04-09 15:28:05,084 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <bound method UserAgentString.rebuild_and_replace_user_agent_handler of <botocore.useragent.UserAgentString object at 0x156dfa370>>
+[ 2025-04-09 15:28:05,084 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <function signal_transferring at 0x156d545e0>
+[ 2025-04-09 15:28:05,084 ] botocore.hooks - DEBUG - Event request-created.s3.GetObject: calling handler <function add_retry_headers at 0x15109d5e0>
+[ 2025-04-09 15:28:05,084 ] botocore.endpoint - DEBUG - Sending http request: <AWSPreparedRequest stream_output=True, method=GET, url=https://hf-predication-model2025.s3.amazonaws.com/config/20250409_151257/prediction_params.yaml, headers={'x-amz-checksum-mode': b'ENABLED', 'User-Agent': b'Boto3/1.37.28 md/Botocore#1.37.28 ua/2.1 os/macos#24.3.0 md/arch#arm64 lang/python#3.9.6 md/pyimpl#CPython m/G cfg/retry-mode#legacy Botocore/1.37.28', 'X-Amz-Date': b'20250409T092805Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=AKIA2RP6H2HI34XE4TN5/20250409/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-checksum-mode;x-amz-content-sha256;x-amz-date, Signature=466b074d0ea6b75b9f5183c66bdd224268f5eb08d1803db5d5b3007c459d78a2', 'amz-sdk-invocation-id': b'62ff174c-89cb-484a-b131-c76e4a974abe', 'amz-sdk-request': b'attempt=1'}>
+[ 2025-04-09 15:28:05,084 ] botocore.httpsession - DEBUG - Certificate path: /Users/khalid/Desktop/ML-Model-Deployment/.venv/lib/python3.9/site-packages/certifi/cacert.pem
+[ 2025-04-09 15:28:05,441 ] urllib3.connectionpool - DEBUG - https://hf-predication-model2025.s3.amazonaws.com:443 "GET /config/20250409_151257/prediction_params.yaml HTTP/1.1" 200 960
+[ 2025-04-09 15:28:05,441 ] botocore.hooks - DEBUG - Event before-parse.s3.GetObject: calling handler <function _handle_200_error at 0x15109daf0>
+[ 2025-04-09 15:28:05,441 ] botocore.hooks - DEBUG - Event before-parse.s3.GetObject: calling handler <function handle_expires_header at 0x15109d940>
+[ 2025-04-09 15:28:05,441 ] botocore.parsers - DEBUG - Response headers: {'x-amz-id-2': 'CADzxzVGGqF4dzlTp6oMDR0dG3gY+6Y5XPTHdcxVScn7uL66QHXrOJ8SNTdEtb7Nw+mLmaWMENM=', 'x-amz-request-id': '766298YWKZD8DNEV', 'Date': 'Wed, 09 Apr 2025 09:28:06 GMT', 'Last-Modified': 'Wed, 09 Apr 2025 09:13:05 GMT', 'ETag': '"aca0498683478f66e3ac510300ba1e07"', 'x-amz-checksum-crc32': 'FDKv7g==', 'x-amz-checksum-type': 'FULL_OBJECT', 'x-amz-server-side-encryption': 'AES256', 'x-amz-version-id': 'RJ_aHTkQQFmmHk2iewMZqpwYpa2Eppw6', 'Accept-Ranges': 'bytes', 'Content-Type': 'binary/octet-stream', 'Content-Length': '960', 'Server': 'AmazonS3'}
+[ 2025-04-09 15:28:05,441 ] botocore.parsers - DEBUG - Response body:
+<botocore.httpchecksum.StreamingChecksumBody object at 0x156e9a940>
+[ 2025-04-09 15:28:05,442 ] botocore.hooks - DEBUG - Event needs-retry.s3.GetObject: calling handler <function _update_status_code at 0x15109dc10>
+[ 2025-04-09 15:28:05,442 ] botocore.hooks - DEBUG - Event needs-retry.s3.GetObject: calling handler <botocore.retryhandler.RetryHandler object at 0x156dfa8b0>
+[ 2025-04-09 15:28:05,442 ] botocore.retryhandler - DEBUG - No retry needed.
+[ 2025-04-09 15:28:05,442 ] botocore.hooks - DEBUG - Event needs-retry.s3.GetObject: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0x156dfa940>>
+[ 2025-04-09 15:28:05,443 ] s3transfer.tasks - DEBUG - IOWriteTask(transfer_id=0, {'offset': 0}) about to wait for the following futures []
+[ 2025-04-09 15:28:05,443 ] s3transfer.tasks - DEBUG - IOWriteTask(transfer_id=0, {'offset': 0}) done waiting for dependent futures
+[ 2025-04-09 15:28:05,443 ] s3transfer.tasks - DEBUG - Executing task IOWriteTask(transfer_id=0, {'offset': 0}) with kwargs {'fileobj': <s3transfer.utils.DeferredOpenFile object at 0x156e2edf0>, 'offset': 0}
+[ 2025-04-09 15:28:05,444 ] s3transfer.tasks - DEBUG - IORenameFileTask(transfer_id=0, {'final_filename': 'temp_model_20250409_151257/params.yaml'}) about to wait for the following futures []
+[ 2025-04-09 15:28:05,444 ] s3transfer.tasks - DEBUG - IORenameFileTask(transfer_id=0, {'final_filename': 'temp_model_20250409_151257/params.yaml'}) done waiting for dependent futures
+[ 2025-04-09 15:28:05,444 ] s3transfer.tasks - DEBUG - Executing task IORenameFileTask(transfer_id=0, {'final_filename': 'temp_model_20250409_151257/params.yaml'}) with kwargs {'fileobj': <s3transfer.utils.DeferredOpenFile object at 0x156e2edf0>, 'final_filename': 'temp_model_20250409_151257/params.yaml', 'osutil': <s3transfer.utils.OSUtils object at 0x156dfad90>}
+[ 2025-04-09 15:28:05,445 ] s3transfer.utils - DEBUG - Releasing acquire 0/None
+[ 2025-04-09 15:28:05,445 ] root - INFO - File config/20250409_151257/prediction_params.yaml downloaded to temp_model_20250409_151257/params.yaml

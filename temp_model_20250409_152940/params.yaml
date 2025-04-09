@@ -21,35 +21,13 @@ prediction_threshold: 0.001
 # - Balanced (default): 0.5
 # - High specificity (minimize false positives): 0.7
 
-# Feature importance (top 25 features)
+# Feature importance (top 5 features from cross-validation)
 important_features:
-  # Top 16 features from cross-validation
   - FS
-  - NYHA
-  - Chest_pain
-  - LVIDs
   - DT
-  - Wall_Subendocardial
-  - LAV
+  - NYHA
   - HR
   - BNP
-  - ECG_T_inversion
-  - Age
-  - BMI
-  - EA
-  - LDLc
-  - ICT
-  - RBS
-  # Additional features to reach 25
-  - LVEF
-  - Sex
-  - HTN
-  - DM
-  - Smoker
-  - DL
-  - TropI
-  - RWMA
-  - MR
 
 # Performance metrics from cross-validation
 performance_metrics:
@@ -68,13 +46,6 @@ preprocessing:
     - Wall_Subendocardial
     - ECG_T_inversion
     - Chest_pain
-    - Sex
-    - HTN
-    - DM
-    - Smoker
-    - DL
-    - RWMA
-    - MR
   numerical_columns:
     - Age
     - BMI
@@ -88,5 +59,3 @@ preprocessing:
     - DT
     - LDLc
     - BNP
-    - LVEF
-    - TropI
