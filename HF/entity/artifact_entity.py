@@ -15,3 +15,18 @@ class DataTransformationArtifact:
         self.transformed_train_file_path = transformed_train_file_path
         self.transformed_test_file_path = transformed_test_file_path
         self.transformed_object_file_path = transformed_object_file_path
+
+class ModelTrainerArtifact:
+    def __init__(self, trained_model_file_path: str, model_accuracy: float):
+        self.trained_model_file_path = trained_model_file_path
+        self.model_accuracy = model_accuracy
+
+class ModelPusherArtifact:
+    def __init__(self, saved_model_path: str, model_file_path: str):
+        self.saved_model_path = saved_model_path
+        self.model_file_path = model_file_path
+
+class ModelPredictionArtifact:
+    def __init__(self, prediction_file_path: str, model_accuracy: float):
+        self.prediction_file_path = prediction_file_path
+        self.model_accuracy = model_accuracy

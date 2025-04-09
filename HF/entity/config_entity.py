@@ -48,3 +48,38 @@ class DataTransformationConfig:
     num_features: list = field(default_factory=lambda: ["Age", "BMI", "HR", "RBS", "HbA1C", "Creatinine", "Na", "K", "Cl", "Hb", "TropI", "LVIDd", "FS", "LVIDs", "LVEF", "LAV", "ICT", "IRT", "EA", "DT", "MPI", "RR", "TC", "LDLc", "HDLc", "TG", "BNP"])
     or_columns: list = field(default_factory=lambda: ["Sex", "NYHA", "HTN", "DM", "Smoker", "DL", "BA", "CXR", "RWMA", "MI", "Thrombolysis", "MR", "Chest_pain"])
     oh_columns: list = field(default_factory=lambda: ["ECG", "ACS", "Wall"])
+
+@dataclass
+class ModelTrainerConfig:
+    model_trainer_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_TRAINER_DIR_NAME)
+    trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_TRAINER_TRAINED_MODEL_NAME)
+    expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
+    model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
+    # XGBoost model parameters
+    model_params: dict = field(default_factory=lambda: {
+        "learning_rate": 0.03,
+        "n_estimators": 250,
+        "max_depth": 12,
+        "min_child_weight": 4,
+        "gamma": 0.1,
+        "subsample": 0.85,
+        "colsample_bytree": 0.8,
+        "reg_alpha": 0.1,
+        "reg_lambda": 0.1,
+        "random_state": 42
+    })
+
+@dataclass
+class ModelPusherConfig:
+    model_pusher_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_PUSHER_DIR_NAME)
+    model_file_path: str = os.path.join(model_pusher_dir, MODEL_TRAINER_TRAINED_MODEL_NAME)
+    saved_model_path: str = os.path.join(MODEL_PUSHER_SAVED_MODEL_DIR, f"{get_timestamp()}", MODEL_TRAINER_TRAINED_MODEL_NAME)
+    # Path to save the model for deployment
+
+@dataclass
+class ModelPredictionConfig:
+    model_prediction_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_PREDICTION_DIR_NAME)
+    prediction_file_path: str = os.path.join(model_prediction_dir, "predictions.csv")
+    model_file_path: str = os.path.join(MODEL_PUSHER_SAVED_MODEL_DIR, "latest", MODEL_TRAINER_TRAINED_MODEL_NAME)
+    params_file_path: str = os.path.join("config", MODEL_PREDICTION_PARAMETERS_FILE_NAME)
+    # Parameters for model prediction

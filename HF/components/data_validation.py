@@ -20,7 +20,7 @@ class DataValidation:
             # This would typically be loaded from a schema file
             self._schema_config = {
                 "columns": [
-                    "StudyID", "Age", "Sex", "BMI", "NYHA", "HR", "HTN", "DM", "Smoker",
+                    "Age", "Sex", "BMI", "NYHA", "HR", "HTN", "DM", "Smoker",
                     "DL", "BA", "RBS", "HbA1C", "Creatinine", "Na", "K", "Cl", "Hb",
                     "TropI", "CXR", "ECG", "LVIDd", "FS", "LVIDs", "LVEF", "RWMA",
                     "LAV", "MI", "ACS", "Wall", "Thrombolysis", "ICT", "IRT", "MR",

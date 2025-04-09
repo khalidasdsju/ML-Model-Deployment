@@ -1,0 +1,73 @@
+# Model Prediction Parameters
+
+# XGBoost model parameters (optimized through Optuna)
+model_params:
+  learning_rate: 0.03
+  n_estimators: 250
+  max_depth: 12
+  min_child_weight: 4
+  gamma: 0.1
+  subsample: 0.85
+  colsample_bytree: 0.8
+  reg_alpha: 0.1
+  reg_lambda: 0.1
+  random_state: 42
+
+# Prediction threshold (optimized through cross-validation)
+prediction_threshold: 0.5
+
+# Feature importance (top 5 features from cross-validation)
+important_features:
+  - FS
+  - NYHA
+  - Chest_pain
+  - LVIDs
+  - DT
+
+# Performance metrics from cross-validation
+performance_metrics:
+  accuracy: 0.86
+  precision: 0.87
+  recall: 0.81
+  f1_score: 0.83
+  roc_auc: 0.94
+
+# Data preprocessing parameters
+preprocessing:
+  drop_columns:
+    - StudyID
+  categorical_columns:
+    - Sex
+    - NYHA
+    - HTN
+    - DM
+    - Smoker
+    - DL
+    - CXR
+    - RWMA
+    - MI
+    - Thrombolysis
+    - MR
+    - Chest_pain
+    - ECG
+    - ACS
+    - Wall
+  numerical_columns:
+    - Age
+    - BMI
+    - HR
+    - RBS
+    - Creatinine
+    - LVIDd
+    - FS
+    - LVIDs
+    - LVEF
+    - LAV
+    - ICT
+    - IRT
+    - EA
+    - DT
+    - RR
+    - TC
+    - LDLc
+    - BNP
