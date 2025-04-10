@@ -54,10 +54,22 @@ jobs:
 
       - name: Run Docker Image to serve users
         run: |
-          # Stop and remove any existing container
-          docker ps -q --filter "name=ml-model-app" | grep -q . && docker stop ml-model-app && docker rm ml-model-app || true
+          # Stop and remove any existing container - more robust approach
+          echo "Stopping any existing container..."
+          docker stop ml-model-app 2>/dev/null || true
+          echo "Removing any existing container..."
+          docker rm ml-model-app 2>/dev/null || true
 
-          # Pull and run the new container
+          # Make sure the container is really gone
+          if docker ps -a | grep -q ml-model-app; then
+            echo "Container still exists, forcing removal..."
+            docker rm -f ml-model-app 2>/dev/null || true
+          fi
+
+          echo "Pulling latest image..."
+          docker pull "${{ steps.login-ecr.outputs.registry }}/hf":latest
+
+          echo "Starting new container..."
           docker run -d --name ml-model-app \
             -e AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" \
             -e AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
@@ -65,3 +77,5 @@ jobs:
             -e MONGODB_URL="${{ secrets.MONGODB_URL }}" \
             -p 8080:8080 \
             "${{ steps.login-ecr.outputs.registry }}/hf":latest
+
+          echo "Container started successfully."
