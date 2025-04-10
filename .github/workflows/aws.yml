@@ -1,18 +1,3 @@
-# ML Model Deployment Workflow
-#
-# This workflow builds a Docker image for the ML model, pushes it to Amazon ECR,
-# and deploys it to an EC2 instance.
-#
-# Required GitHub Secrets:
-# - AWS_ACCESS_KEY_ID: AWS access key with permissions for ECR and other AWS services
-# - AWS_SECRET_ACCESS_KEY: AWS secret key
-# - AWS_DEFAULT_REGION: AWS region (e.g., us-east-1)
-# - ECR_REPO: Name of your ECR repository
-# - MONGODB_URL: Connection string for MongoDB (if your application uses MongoDB)
-# - MONGO_URI: Alternative MongoDB connection string format
-#
-# Note: The deployment job uses a self-hosted runner that should be set up on your EC2 instance
-
 name: Deploy ML Model Docker Image to EC2 instance
 
 on:
@@ -20,16 +5,15 @@ on:
     branches: [main]
   workflow_dispatch:
 
-
 jobs:
   Continuous-Integration:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Configure AWS credentials
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -40,27 +24,27 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Build, tag, and push image to Amazon ECR
+      - name: Build, Tag, and Push Docker Image to Amazon ECR
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ secrets.ECR_REPO }}
           IMAGE_TAG: latest
-          MONGO_URI: "mongodb+srv://khalidasdsju:khalidasdsju@cluster0.wh4fymj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+          MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
-          # Pass MongoDB URI as a build argument if your Dockerfile uses it
           docker build --build-arg MONGO_URI="$MONGO_URI" -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
 
   Continuous-Deployment:
     needs: Continuous-Integration
     runs-on: self-hosted
+
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Configure AWS credentials
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -71,24 +55,28 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Stop existing container if running
+      - name: Stop Existing Container (if running)
         continue-on-error: true
         run: |
           docker stop ml-model-container || true
           docker rm ml-model-container || true
 
-      - name: Run Docker Image to serve ML model
+      - name: Run Docker Container for ML Model
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.ECR_REPO }}
+          IMAGE_TAG: latest
         run: |
           docker run -d --name ml-model-container \
             -e AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" \
             -e AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
             -e AWS_DEFAULT_REGION="${{ secrets.AWS_DEFAULT_REGION }}" \
             -e MONGODB_URL="${{ secrets.MONGODB_URL }}" \
-            -e MONGO_URI="mongodb+srv://khalidasdsju:khalidasdsju@cluster0.wh4fymj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" \
+            -e MONGO_URI="${{ secrets.MONGO_URI }}" \
             -p 8080:8080 \
-            "${{ steps.login-ecr.outputs.registry }}"/"${{ secrets.ECR_REPO }}":latest
+            $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-      - name: Health check
+      - name: Health Check
         run: |
           sleep 10
           curl -f http://localhost:8080/health || (docker logs ml-model-container && exit 1)
