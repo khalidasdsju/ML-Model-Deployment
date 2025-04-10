@@ -59,10 +59,28 @@ jobs:
 
       - name: Set up SSH
         run: |
+          # Check if EC2 secrets are available
+          if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
+            echo "Error: EC2_SSH_KEY secret is not set"
+            exit 1
+          fi
+
+          if [ -z "${{ secrets.EC2_HOST }}" ]; then
+            echo "Error: EC2_HOST secret is not set"
+            exit 1
+          fi
+
+          if [ -z "${{ secrets.EC2_USERNAME }}" ]; then
+            echo "Error: EC2_USERNAME secret is not set"
+            exit 1
+          fi
+
+          # Set up SSH key
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
           chmod 600 ~/.ssh/ec2.pem
           echo "SSH key configured"
+          echo "Will connect to ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}"
 
       - name: Deploy to EC2 via SSH
         env:
