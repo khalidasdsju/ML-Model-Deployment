@@ -6,7 +6,7 @@ AWS_ACCESS_KEY_ID="your_access_key_id"
 AWS_SECRET_ACCESS_KEY="your_secret_access_key"
 AWS_DEFAULT_REGION="your_aws_region"
 EC2_HOST="54.225.9.196"
-EC2_USERNAME="ec2-user"  # or "ubuntu" depending on your EC2 instance
+EC2_USERNAME="ubuntu"  # Ubuntu 24.04 uses 'ubuntu' as the default username
 SSH_KEY_PATH="path/to/your/key.pem"
 
 # Create the deployment script to run on EC2

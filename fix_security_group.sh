@@ -5,7 +5,7 @@
 AWS_ACCESS_KEY_ID="your_access_key_id"
 AWS_SECRET_ACCESS_KEY="your_secret_access_key"
 AWS_DEFAULT_REGION="your_aws_region"
-EC2_INSTANCE_ID="your_ec2_instance_id" # Get this from AWS Console
+EC2_INSTANCE_ID="i-0c16cd6ce8567b4f6" # Your EC2 instance ID
 
 # Configure AWS CLI
 export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"
@@ -34,7 +34,7 @@ if [ -z "$PORT_OPEN" ]; then
     --protocol tcp \
     --port 8080 \
     --cidr 0.0.0.0/0
-  
+
   echo "Rule added successfully!"
 else
   echo "Port 8080 is already open in the security group."
