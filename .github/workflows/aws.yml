@@ -41,7 +41,7 @@ jobs:
 
   Continuous-Deployment:
     needs: Continuous-Integration
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -57,9 +57,33 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Run Docker Image to serve users
+      - name: Set up SSH
         run: |
-          # Stop and remove any existing container - more robust approach
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2.pem
+          chmod 600 ~/.ssh/ec2.pem
+          echo "SSH key configured"
+
+      - name: Deploy to EC2 via SSH
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        run: |
+          # Create deployment script
+          cat > deploy.sh << 'EOL'
+          #!/bin/bash
+          set -e
+
+          # Configure AWS CLI
+          export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"
+          export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
+          export AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}"
+
+          # Login to ECR
+          aws ecr get-login-password | docker login --username AWS --password-stdin ${ECR_REGISTRY}
+
+          # Stop and remove existing container
           echo "Stopping any existing container..."
           docker stop ml-model-app 2>/dev/null || true
           echo "Removing any existing container..."
@@ -71,16 +95,33 @@ jobs:
             docker rm -f ml-model-app 2>/dev/null || true
           fi
 
+          # Pull latest image
           echo "Pulling latest image..."
-          docker pull "${{ steps.login-ecr.outputs.registry }}/hf":latest
+          docker pull ${ECR_REGISTRY}/hf:latest
 
+          # Run new container
           echo "Starting new container..."
           docker run -d --name ml-model-app \
-            -e AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" \
-            -e AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
-            -e AWS_DEFAULT_REGION="${{ secrets.AWS_DEFAULT_REGION }}" \
-            -e MONGODB_URL="${{ secrets.MONGODB_URL }}" \
+            -e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+            -e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+            -e AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}" \
+            -e MONGODB_URL="${MONGODB_URL}" \
             -p 8080:8080 \
-            "${{ steps.login-ecr.outputs.registry }}/hf":latest
+            ${ECR_REGISTRY}/hf:latest
 
           echo "Container started successfully."
+          EOL
+
+          # Copy script to EC2 and execute
+          chmod +x deploy.sh
+          scp -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            deploy.sh ${EC2_USERNAME}@${EC2_HOST}:~/deploy.sh
+
+          ssh -i ~/.ssh/ec2.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            ${EC2_USERNAME}@${EC2_HOST} \
+            "AWS_ACCESS_KEY_ID='${{ secrets.AWS_ACCESS_KEY_ID }}' \
+             AWS_SECRET_ACCESS_KEY='${{ secrets.AWS_SECRET_ACCESS_KEY }}' \
+             AWS_DEFAULT_REGION='${{ secrets.AWS_DEFAULT_REGION }}' \
+             MONGODB_URL='${{ secrets.MONGODB_URL }}' \
+             ECR_REGISTRY='${ECR_REGISTRY}' \
+             bash ~/deploy.sh"
